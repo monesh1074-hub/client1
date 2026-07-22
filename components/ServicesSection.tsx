@@ -1,0 +1,129 @@
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { Flag, Clapperboard, Heart, Building2, Sparkles, Briefcase, CheckCircle2, ArrowRight } from 'lucide-react';
+import { SERVICES } from '@/lib/data';
+
+export default function ServicesSection() {
+  const [activeTab, setActiveTab] = useState(SERVICES[0].id);
+
+  const activeService = SERVICES.find(s => s.id === activeTab) || SERVICES[0];
+
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'Flag': return Flag;
+      case 'Clapperboard': return Clapperboard;
+      case 'Heart': return Heart;
+      case 'Building2': return Building2;
+      case 'Sparkles': return Sparkles;
+      case 'Briefcase': return Briefcase;
+      default: return Sparkles;
+    }
+  };
+
+  return (
+    <section id="services" className="bg-obsidian-900 border-y border-gold-500/20 py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
+            Our Core Specializations
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            Grand Stage Setup & <span className="text-gold-gradient">Event Decoration Services</span>
+          </h2>
+          <p className="text-sm sm:text-base text-slate-300">
+            Precision engineering, creative luxury, and flawless execution for every scale of celebration.
+          </p>
+        </div>
+
+        {/* Tab Buttons Navigation */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+          {SERVICES.map((service) => {
+            const Icon = getIcon(service.iconName);
+            const isActive = service.id === activeTab;
+            return (
+              <button
+                key={service.id}
+                onClick={() => setActiveTab(service.id)}
+                className={`inline-flex items-center px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                  isActive
+                    ? 'bg-gold-gradient text-obsidian-950 shadow-lg gold-glow font-bold scale-105'
+                    : 'bg-obsidian-850 text-slate-300 hover:text-white hover:bg-obsidian-800 border border-slate-800'
+                }`}
+              >
+                <Icon className={`w-4 h-4 mr-2 ${isActive ? 'text-obsidian-950' : 'text-gold-400'}`} />
+                {service.title}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Active Tab Featured Detail Card */}
+        <div className="bg-obsidian-950 border border-gold-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Image Column */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
+                <Image
+                  src={activeService.image}
+                  alt={activeService.title}
+                  width={700}
+                  height={500}
+                  className="w-full h-[320px] sm:h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-obsidian-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
+                  <div className="text-xs text-gold-400 font-semibold uppercase tracking-wider">Ideal For</div>
+                  <div className="text-xs sm:text-sm font-bold text-white">{activeService.idealFor}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Column */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <div>
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-3">
+                  {activeService.title}
+                </h3>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  {activeService.fullDesc}
+                </p>
+              </div>
+
+              {/* Feature Bullet Points */}
+              <div className="space-y-3 pt-2">
+                <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">Key Service Capabilities:</div>
+                <div className="grid grid-cols-1 gap-2.5">
+                  {activeService.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start space-x-3 text-xs sm:text-sm text-slate-200">
+                      <CheckCircle2 className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-4">
+                <a
+                  href="#booking"
+                  className="inline-flex items-center px-6 py-3 rounded-xl text-sm font-bold text-obsidian-950 bg-gold-gradient hover:opacity-95 transition-all shadow-md gold-glow uppercase tracking-wider"
+                >
+                  Book {activeService.title}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}

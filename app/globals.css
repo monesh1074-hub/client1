@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-outfit: 'Outfit', system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    background-color: #05070B;
+    color: #F8FAFC;
+    font-family: var(--font-outfit);
+  }
+
+  body {
+    background-color: #0A0E17;
+    overflow-x: hidden;
+    selection-background-color: #D4AF37;
+    selection-color: #0A0E17;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0E17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #22304A;
+  border-radius: 5px;
+  border: 2px solid #0A0E17;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Luxury Utilities */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF3C4 0%, #D4AF37 50%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #D4AF37 0%, #FFFFFF 50%, #D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(135deg, #D4AF37, #22304A, #D4AF37) 1;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 0 45px rgba(212, 175, 55, 0.25);
+}
+
+.bg-obsidian-card {
+  background: rgba(15, 22, 36, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.bg-obsidian-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
