@@ -3,28 +3,31 @@
 import React from 'react';
 import { Award, CheckCircle2, Clock, MapPin, ShieldAlert, Sparkles } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function IntroTrust() {
+  const { t } = useLanguage();
+
   const trustPoints = [
     {
       icon: Award,
-      title: "15+ Years Mastery",
-      description: "Proven leadership in South India's largest stage setups and event decorations."
+      title: t('intro.badge'),
+      description: t('intro.p1')
     },
     {
       icon: Clock,
-      title: "Rapid 12-Hour Turnaround",
-      description: "Dedicated 24/7 technical crew capable of overnight mega stage assembly."
+      title: t('timeline.title'),
+      description: t('intro.p2')
     },
     {
       icon: ShieldAlert,
-      title: "Structural Safety First",
-      description: "Engineered load capacities, fire-retardant materials & wind-resistant setups."
+      title: t('hero.safetyCertified'),
+      description: t('hero.safetyDesc')
     },
     {
       icon: CheckCircle2,
-      title: "1,200+ Projects Done",
-      description: "Zero delay history across political, movie, wedding, and government events."
+      title: t('hero.eventsDelivered'),
+      description: t('why.f2Desc')
     }
   ];
 
@@ -36,13 +39,13 @@ export default function IntroTrust() {
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center space-x-2 text-gold-400 text-xs sm:text-sm font-semibold uppercase tracking-widest">
             <Sparkles className="w-4 h-4" />
-            <span>Unmatched Scale & Artistry</span>
+            <span>{t('intro.badge')}</span>
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
-            When Perfection Is Mandatory, South India Chooses <span className="text-gold-gradient">Kalai Decorators</span>
+            {t('intro.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            Founded by <strong className="text-white">Perumal</strong>, Kalai Decorators has grown into Tamil Nadu&apos;s premier event stage setup powerhouse. We transform blank venues into unforgettable architectural masterworks.
+            {t('intro.p1')} {t('intro.p2')}
           </p>
         </div>
 
@@ -76,7 +79,7 @@ export default function IntroTrust() {
               <MapPin className="w-5 h-5" />
             </div>
             <div>
-              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Head Office & Central Warehouse</div>
+              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{t('contact.addressHeader')}</div>
               <div className="text-sm sm:text-base font-semibold text-white">
                 {COMPANY_DETAILS.contact.formattedAddress}
               </div>
@@ -89,7 +92,7 @@ export default function IntroTrust() {
             rel="noopener noreferrer"
             className="shrink-0 px-5 py-2.5 rounded-lg text-xs font-bold text-slate-200 bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 hover:border-gold-400 transition-all"
           >
-            Open in Google Maps
+            {t('contact.directions')}
           </a>
         </div>
 

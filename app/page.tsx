@@ -6,7 +6,6 @@ import AboutSection from '@/components/AboutSection';
 import FounderSection from '@/components/FounderSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import ServicesSection from '@/components/ServicesSection';
-import StageEstimator from '@/components/StageEstimator';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import PortfolioGallery from '@/components/PortfolioGallery';
 import TestimonialsSection from '@/components/TestimonialsSection';
@@ -28,7 +27,6 @@ export default function HomePage() {
       <FounderSection />
       <WhyChooseUs />
       <ServicesSection />
-      <StageEstimator />
       <FeaturedProjects />
       <PortfolioGallery />
       <TestimonialsSection />

@@ -3,15 +3,16 @@
 import React from 'react';
 import Image from 'next/image';
 import { CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+
   const capabilities = [
-    { title: "Heavy Structural Steel Trussing", desc: "Supports massive 200ft stage decks with multi-ton lighting & LED loads." },
-    { title: "Custom 3D Thematic Sculpting", desc: "Bespoke movie sets, traditional Gopurams & palace facades." },
-    { title: "Exotic Floral Mastercraft", desc: "Fresh imported orchids, roses, jasmine & marigold floral Mandapams." },
-    { title: "VIP & VVIP Security Enclosures", desc: "Bulletproof speaker podiums & protocol crowd barricading." },
-    { title: "High-Lumen Broadcast Lighting", desc: "Stage illumination tuned for live 4K television cameras." },
-    { title: "24/7 Multi-City Mobilization", desc: "Dedicated logistics fleet for rapid setup anywhere in South India." }
+    { title: t('about.f1'), desc: t('hero.safetyDesc') },
+    { title: t('about.f2'), desc: t('hero.cinemaPartner') },
+    { title: t('about.f3'), desc: t('why.f2Desc') },
+    { title: t('about.f4'), desc: t('contact.serving') }
   ];
 
   return (
@@ -27,23 +28,23 @@ export default function AboutSection() {
               {/* Primary Image */}
               <div className="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl bg-obsidian-850">
                 <Image
-                  src="/images/portfolio/kalai-event-02.jpeg"
-                  alt="Kalai Decorators Cinema Audio Launch Stage Design"
+                  src="/images/client/important/important-02.jpeg"
+                  alt="Kalai Decorators Grand Event Setup"
                   width={700}
                   height={500}
                   className="w-full h-[380px] sm:h-[450px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 left-4 right-4 p-4 bg-obsidian-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
-                  <div className="text-xs font-semibold text-gold-400 uppercase tracking-widest">Kollywood Cinema Audio Launch</div>
-                  <div className="text-sm font-bold text-white">Massive Stadium Stage with Motorized Gate</div>
+                  <div className="text-xs font-semibold text-gold-400 uppercase tracking-widest">{t('hero.featuredCaseStudy')}</div>
+                  <div className="text-sm font-bold text-white">{t('about.title')}</div>
                 </div>
               </div>
 
               {/* Secondary Overlapping Image */}
               <div className="absolute -bottom-10 -right-6 w-3/5 rounded-xl overflow-hidden border-2 border-gold-400 shadow-2xl hidden sm:block">
                 <Image
-                  src="/images/portfolio/kalai-event-03.jpeg"
+                  src="/images/client/marriage/wedding-set-01.jpeg"
                   alt="Kalai Decorators Royal Wedding Floral Setup"
                   width={400}
                   height={300}
@@ -54,9 +55,9 @@ export default function AboutSection() {
               {/* Floating Badge */}
               <div className="absolute -top-6 -left-6 bg-gold-gradient p-0.5 rounded-xl shadow-xl">
                 <div className="bg-obsidian-950 px-5 py-3 rounded-[10px] flex items-center space-x-3">
-                  <div className="text-2xl font-bold font-serif text-gold-400">15+</div>
+                  <div className="text-2xl font-bold font-serif text-gold-400">27+</div>
                   <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider leading-tight">
-                    Years of <br />Excellence
+                    {t('about.subtitle')}
                   </div>
                 </div>
               </div>
@@ -69,19 +70,19 @@ export default function AboutSection() {
             
             <div className="space-y-2">
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
-                About Kalai Decorators
+                {t('about.subtitle')}
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Where Architectural Strength Meets <span className="text-gold-gradient">Unrivaled Artistry</span>
+                {t('about.title')}
               </h2>
             </div>
 
             <p className="text-base text-slate-300 leading-relaxed">
-              Established in <strong className="text-white">2010</strong> in Alapakkam, Chennai, <strong className="text-white">Kalai Decorators</strong> was built on a singular conviction: every high-stakes event deserves stage architecture that radiates prestige, stability, and sheer beauty.
+              {t('about.p1')}
             </p>
 
             <p className="text-sm text-slate-400 leading-relaxed">
-              Under the visionary direction of <strong className="text-slate-200">Founder Perumal</strong>, we have evolved from a local decorator into South India&apos;s most sought-after mega stage production company. Whether building a 200-foot political rally stage engineered to hold hundreds of VIPs or designing an intricate floral temple Mandapam with 50,000 imported orchids, our team operates with zero tolerance for errors.
+              {t('about.p2')}
             </p>
 
             {/* Core Capability Checklist */}
@@ -100,15 +101,15 @@ export default function AboutSection() {
             {/* Founder Quote Teaser */}
             <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
               <div>
-                <div className="text-xs text-slate-400 font-medium">Founded & Supervised by</div>
-                <div className="text-base font-bold font-serif text-gold-400">Perumal — Founder</div>
+                <div className="text-xs text-slate-400 font-medium">{t('founder.role')}</div>
+                <div className="text-base font-bold font-serif text-gold-400">{t('founder.name')}</div>
               </div>
 
               <a
                 href="#founder"
                 className="text-xs font-semibold text-gold-300 hover:text-gold-400 underline underline-offset-4"
               >
-                Read Founder Story &rarr;
+                {t('nav.founder')} &rarr;
               </a>
             </div>
 

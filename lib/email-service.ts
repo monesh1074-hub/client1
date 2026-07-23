@@ -88,7 +88,7 @@ export async function sendOwnerNotificationEmail(enquiry: EnquiryRecord): Promis
         </div>
 
         <div class="footer">
-          Kalai Decorators Admin System &bull; Founded by Perumal &bull; Alapakkam, Chennai
+          Kalai Decorators Enquiry System &bull; Founded by Perumal &bull; Alapakkam, Chennai
         </div>
       </div>
     </body>
@@ -153,7 +153,7 @@ export async function sendOwnerNotificationEmail(enquiry: EnquiryRecord): Promis
     }
   }
 
-  // Fallback: Lead is safely saved in /admin dashboard database regardless!
-  console.log(`[EMAIL DISPATCH - RECORDED] Lead #${enquiry.id} is stored in persistent Admin Database at /admin.`);
+  // Fallback: Lead is safely saved in local enquiries database!
+  console.log(`[EMAIL DISPATCH - RECORDED] Lead #${enquiry.id} is stored in persistent enquiries store.`);
   return true;
 }

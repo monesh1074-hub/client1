@@ -20,22 +20,22 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full bg-obsidian-850 p-1 border border-gold-400/40">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden border-2 border-gold-400/90 shadow-2xl gold-glow bg-obsidian-950 shrink-0 flex items-center justify-center">
                 <Image
-                  src="/images/murugan-brand.svg"
-                  alt="Kalai Decorators Murugan Brand Icon"
-                  width={40}
-                  height={40}
-                  className="w-full h-full object-contain"
+                  src="/logo.jpeg"
+                  alt="Kalai Decorators Logo"
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover scale-110 rounded-lg"
                 />
               </div>
-              <span className="font-serif text-2xl font-bold text-white tracking-tight">
+              <span className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">
                 KALAI <span className="text-gold-400">DECORATORS</span>
               </span>
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Premier event decoration and mega stage setup company based in Chennai. Founded by <strong className="text-slate-200">Perumal</strong>, specializing in political rallies, cinema audio launches, royal weddings, and government ceremonies.
+              Premier event decoration & mega stage setup company with <strong className="text-gold-400">27+ years</strong> of mastery (Est. 1999). Founded by <strong className="text-slate-200">Perumal</strong>, specializing in political rallies, blockbuster movie sets & audio launches (<strong className="text-slate-300">Vikram, Master, Leo, Kaithi</strong>), royal weddings, and government ceremonies.
             </p>
 
             <div className="pt-2 text-xs text-gold-400 font-semibold uppercase tracking-wider">
@@ -82,11 +82,13 @@ export default function Footer() {
             <div className="space-y-2 text-xs">
               <div className="flex items-center space-x-2 text-slate-300">
                 <Phone className="w-3.5 h-3.5 text-gold-400 shrink-0" />
-                <span>+91 6381147719 | +91 9994849904</span>
+                <span>+91 98402 85854 | +91 98409 60322</span>
               </div>
               <div className="flex items-center space-x-2 text-emerald-400">
                 <MessageSquare className="w-3.5 h-3.5 shrink-0" />
-                <span>+91 9940768571 (WhatsApp)</span>
+                <a href={COMPANY_DETAILS.socialLinks.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  +91 99407 68571 (WhatsApp Direct)
+                </a>
               </div>
               <div className="flex items-center space-x-2 text-pink-400">
                 <Instagram className="w-3.5 h-3.5 shrink-0" />

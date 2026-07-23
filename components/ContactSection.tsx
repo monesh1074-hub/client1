@@ -3,8 +3,11 @@
 import React from 'react';
 import { Phone, MessageSquare, Mail, MapPin, Clock, ExternalLink, Instagram } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function ContactSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="bg-obsidian-950 py-20 lg:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,13 +15,13 @@ export default function ContactSection() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
-            Get In Touch Directly
+            {t('contact.subtitle')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Contact <span className="text-gold-gradient">Kalai Decorators</span>
+            {t('contact.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            Reach out via call, WhatsApp, or visit our head office in Alapakkam, Chennai.
+            {t('contact.desc')}
           </p>
         </div>
 
@@ -28,7 +31,7 @@ export default function ContactSection() {
           <div className="lg:col-span-5 bg-obsidian-900 border border-gold-500/30 rounded-3xl p-8 space-y-8 shadow-2xl">
             
             <h3 className="font-serif text-2xl font-bold text-white border-b border-slate-800 pb-4">
-              Direct Contact Channels
+              {t('contact.directChannels')}
             </h3>
 
             {/* Phones */}
@@ -63,7 +66,7 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     className="block text-sm font-semibold text-emerald-400 hover:underline"
                   >
-                    +91 9940768571 (Chat Now)
+                    +91 99407 68571 (Chat Now)
                   </a>
                   <a 
                     href={COMPANY_DETAILS.socialLinks.whatsappAlt} 
@@ -71,7 +74,7 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     className="block text-sm text-emerald-400 hover:underline"
                   >
-                    +91 9994849904 (Support Line)
+                    +91 98409 60322 (Support Line)
                   </a>
                 </div>
               </div>
@@ -141,11 +144,11 @@ export default function ContactSection() {
           <div className="lg:col-span-7 bg-obsidian-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl h-[480px] relative">
             <iframe
               title="Kalai Decorators Office Location Map Alapakkam Chennai"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.643261298402!2d80.1652!3d13.0458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52613d0a92d4b9%3A0x7d0a6c0a0a0a0a0a!2sAlapakkam%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=Alapakkam,Chennai,Tamil+Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'grayscale(0.8) contrast(1.2) invert(0.9)' }}
-              allowFullScreen={false}
+              style={{ border: 0, filter: 'contrast(1.1)' }}
+              allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>

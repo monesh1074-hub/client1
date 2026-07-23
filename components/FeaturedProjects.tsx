@@ -4,8 +4,11 @@ import React from 'react';
 import Image from 'next/image';
 import { MapPin, Users, CheckCircle2, ExternalLink } from 'lucide-react';
 import { FEATURED_PROJECTS } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function FeaturedProjects() {
+  const { t } = useLanguage();
+
   return (
     <section id="featured-projects" className="bg-obsidian-950 py-20 lg:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,13 +16,13 @@ export default function FeaturedProjects() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
-            Case Studies of Excellence
+            {t('projects.subtitle')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            High-Profile <span className="text-gold-gradient">Featured Event Setups</span>
+            {t('projects.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            A deeper look at how Kalai Decorators engineers large-scale stage productions under extreme deadlines.
+            {t('projects.desc')}
           </p>
         </div>
 
@@ -82,7 +85,7 @@ export default function FeaturedProjects() {
 
                     {/* Key Highlights Grid */}
                     <div className="space-y-2 pt-2">
-                      <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">Engineering Highlights:</div>
+                      <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">{t('services.title')}:</div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {project.highlights.map((item, idx) => (
                           <div key={idx} className="flex items-center space-x-2 text-xs text-slate-200 bg-obsidian-900 px-3 py-2 rounded-lg border border-slate-800">
@@ -99,7 +102,7 @@ export default function FeaturedProjects() {
                         href="#booking"
                         className="inline-flex items-center text-xs font-bold text-gold-300 hover:text-gold-400 uppercase tracking-wider group"
                       >
-                        Enquire Similar Stage Setup
+                        {t('contact.enquireSetup')}
                         <ExternalLink className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                       </a>
                     </div>

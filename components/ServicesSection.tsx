@@ -4,9 +4,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Flag, Clapperboard, Heart, Building2, Sparkles, Briefcase, CheckCircle2, ArrowRight } from 'lucide-react';
 import { SERVICES } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function ServicesSection() {
   const [activeTab, setActiveTab] = useState(SERVICES[0].id);
+  const { t } = useLanguage();
 
   const activeService = SERVICES.find(s => s.id === activeTab) || SERVICES[0];
 
@@ -29,13 +31,13 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
-            Our Core Specializations
+            {t('services.subtitle')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Grand Stage Setup & <span className="text-gold-gradient">Event Decoration Services</span>
+            {t('services.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            Precision engineering, creative luxury, and flawless execution for every scale of celebration.
+            {t('hero.desc')}
           </p>
         </div>
 
@@ -77,7 +79,7 @@ export default function ServicesSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-obsidian-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
-                  <div className="text-xs text-gold-400 font-semibold uppercase tracking-wider">Ideal For</div>
+                  <div className="text-xs text-gold-400 font-semibold uppercase tracking-wider">{t('services.subtitle')}</div>
                   <div className="text-xs sm:text-sm font-bold text-white">{activeService.idealFor}</div>
                 </div>
               </div>
@@ -96,7 +98,7 @@ export default function ServicesSection() {
 
               {/* Feature Bullet Points */}
               <div className="space-y-3 pt-2">
-                <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">Key Service Capabilities:</div>
+                <div className="text-xs font-bold text-gold-400 uppercase tracking-widest">{t('services.title')}:</div>
                 <div className="grid grid-cols-1 gap-2.5">
                   {activeService.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start space-x-3 text-xs sm:text-sm text-slate-200">
@@ -113,7 +115,7 @@ export default function ServicesSection() {
                   href="#booking"
                   className="inline-flex items-center px-6 py-3 rounded-xl text-sm font-bold text-obsidian-950 bg-gold-gradient hover:opacity-95 transition-all shadow-md gold-glow uppercase tracking-wider"
                 >
-                  Book {activeService.title}
+                  {t('hero.bookButton')}
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>
               </div>

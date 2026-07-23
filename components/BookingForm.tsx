@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import { CheckCircle2, AlertCircle, Send, Phone, ShieldCheck, Sparkles, X } from 'lucide-react';
 import { COMPANY_DETAILS, SERVICES } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function BookingForm() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -13,21 +15,13 @@ export default function BookingForm() {
     eventType: 'Political Events & Public Rallies',
     eventDate: '',
     venue: '',
-    budget: '₹1,00,000 - ₹3,00,000',
+    budget: '',
     message: ''
   });
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successData, setSuccessData] = useState<{ message: string; enquiryId: string } | null>(null);
-
-  const budgetOptions = [
-    'Under ₹1,00,000',
-    '₹1,00,000 - ₹3,00,000',
-    '₹3,00,000 - ₹5,00,000',
-    '₹5,00,000 - ₹10,00,000',
-    '₹10,00,000+ (Mega Production Scale)'
-  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -102,7 +96,7 @@ export default function BookingForm() {
         eventType: 'Political Events & Public Rallies',
         eventDate: '',
         venue: '',
-        budget: '₹1,00,000 - ₹3,00,000',
+        budget: '',
         message: ''
       });
 
@@ -130,31 +124,31 @@ export default function BookingForm() {
             <div className="space-y-2">
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400 flex items-center">
                 <Sparkles className="w-4 h-4 mr-2" />
-                Reserve Your Setup
+                {t('nav.enquire')}
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                Book Kalai Decorators For Your <span className="text-gold-gradient">Next Mega Event</span>
+                {t('booking.title')}
               </h2>
             </div>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-              Get a customized quote within 2 hours. Founder <strong className="text-white">Perumal</strong> and our technical director will review your venue details and event requirements.
+              {t('booking.desc')}
             </p>
 
             <div className="space-y-4 pt-2">
               <div className="flex items-start space-x-3 bg-obsidian-950 p-4 rounded-xl border border-slate-800">
                 <ShieldCheck className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase">Instant Turnaround Quote</h4>
-                  <p className="text-xs text-slate-400">Receive precise architectural & floral estimates tailored to your venue scale.</p>
+                  <h4 className="text-xs font-bold text-white uppercase">{t('hero.safetyCertified')}</h4>
+                  <p className="text-xs text-slate-400">{t('hero.safetyDesc')}</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3 bg-obsidian-950 p-4 rounded-xl border border-slate-800">
                 <Phone className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase">Direct Founder Access</h4>
-                  <p className="text-xs text-slate-400">Need urgent 12-hour rally setup? Call Founder Perumal directly at {COMPANY_DETAILS.contact.primaryPhone}.</p>
+                  <h4 className="text-xs font-bold text-white uppercase">{t('hero.callFounderBtn')}</h4>
+                  <p className="text-xs text-slate-400">{COMPANY_DETAILS.contact.primaryPhone}</p>
                 </div>
               </div>
             </div>
@@ -166,7 +160,7 @@ export default function BookingForm() {
             <div className="bg-obsidian-950 border border-gold-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
               
               <h3 className="font-serif text-2xl font-bold text-white mb-6">
-                Event Booking Enquiry Form
+                {t('booking.title')}
               </h3>
 
               {error && (
@@ -182,7 +176,7 @@ export default function BookingForm() {
                   {/* Name */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                      Full Name *
+                      {t('form.name')} *
                     </label>
                     <input
                       type="text"
@@ -297,21 +291,19 @@ export default function BookingForm() {
                     />
                   </div>
 
-                  {/* Estimated Budget */}
+                  {/* Custom Estimated Budget */}
                   <div>
                     <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                      Estimated Budget Range
+                      Target Budget / Enquiry with Owner
                     </label>
-                    <select
+                    <input
+                      type="text"
                       name="budget"
                       value={formData.budget}
                       onChange={handleChange}
-                      className="w-full bg-obsidian-900 border border-slate-800 focus:border-gold-400 rounded-xl px-4 py-3 text-sm text-white outline-none transition-colors"
-                    >
-                      {budgetOptions.map(opt => (
-                        <option key={opt} value={opt}>{opt}</option>
-                      ))}
-                    </select>
+                      placeholder="e.g. ₹50,000 / Enquiry with Owner"
+                      className="w-full bg-obsidian-900 border border-slate-800 focus:border-gold-400 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 outline-none transition-colors"
+                    />
                   </div>
                 </div>
 

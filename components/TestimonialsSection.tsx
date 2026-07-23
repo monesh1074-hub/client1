@@ -3,8 +3,11 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function TestimonialsSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="testimonials" className="bg-obsidian-950 py-20 lg:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,13 +15,13 @@ export default function TestimonialsSection() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
-            Endorsements of Trust
+            {t('reviews.subtitle')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            What High-Profile Organizers <span className="text-gold-gradient">Say About Us</span>
+            {t('reviews.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            Verified feedback from political coordinators, movie producers, government officers, and royal wedding hosts.
+            {t('intro.p1')}
           </p>
         </div>
 

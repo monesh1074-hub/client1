@@ -46,7 +46,7 @@ export default function FloatingActionDock() {
         target="_blank"
         rel="noopener noreferrer"
         className="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xl hover:scale-110 transition-all border border-white/20 gold-glow group"
-        title="Chat on WhatsApp (+91 9940768571)"
+        title="Chat on WhatsApp (+91 99407 68571)"
         aria-label="WhatsApp Chat"
       >
         <MessageSquare className="w-6 h-6 transform group-hover:scale-110 transition-transform" />

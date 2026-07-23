@@ -92,6 +92,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from '@/context/LanguageContext';
+
 export default function RootLayout({
   children,
 }: {
@@ -165,7 +167,9 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-obsidian-950 text-slate-100 font-sans antialiased selection:bg-gold-400 selection:text-obsidian-950">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

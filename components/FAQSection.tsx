@@ -2,14 +2,22 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
-import { FAQS } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { t, language } = useLanguage();
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const translatedFaqs = [
+    { question: t('faq.q1'), answer: t('faq.a1'), category: language === 'ta' ? 'முன்பதிவு' : 'Booking' },
+    { question: t('faq.q2'), answer: t('faq.a2'), category: language === 'ta' ? 'மாவட்டங்கள்' : 'Coverage' },
+    { question: t('faq.q3'), answer: t('faq.a3'), category: language === 'ta' ? 'சினிமா' : 'Cinema' },
+    { question: t('faq.q4'), answer: t('faq.a4'), category: language === 'ta' ? 'பாதுகாப்பு' : 'Safety' },
+  ];
 
   return (
     <section className="bg-obsidian-900 border-y border-gold-500/20 py-20 lg:py-28">
@@ -19,19 +27,19 @@ export default function FAQSection() {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400 flex items-center justify-center">
             <HelpCircle className="w-4 h-4 mr-2" />
-            Clear Answers
+            {t('faq.subtitle')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Frequently Asked <span className="text-gold-gradient">Questions</span>
+            {t('faq.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            Everything you need to know about booking, structural safety, turnaround time, and pricing.
+            {t('intro.p1')}
           </p>
         </div>
 
         {/* Accordion Stack */}
         <div className="space-y-4">
-          {FAQS.map((faq, index) => {
+          {translatedFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div

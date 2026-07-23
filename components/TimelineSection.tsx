@@ -3,8 +3,11 @@
 import React from 'react';
 import { TIMELINE } from '@/lib/data';
 import { Compass, Shield, Film, Crown, Trophy } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function TimelineSection() {
+  const { t } = useLanguage();
+
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Compass': return Compass;
@@ -23,13 +26,13 @@ export default function TimelineSection() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
-            Our Legacy Journey
+            {t('timeline.subtitle')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            15 Years of Crafting <span className="text-gold-gradient">Event History</span>
+            {t('timeline.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            The milestone evolution of Kalai Decorators under Founder Perumal&apos;s vision.
+            {t('intro.p1')}
           </p>
         </div>
 

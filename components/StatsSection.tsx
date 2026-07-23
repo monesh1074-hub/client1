@@ -1,9 +1,18 @@
 'use client';
 
 import React from 'react';
-import { STATS } from '@/lib/data';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function StatsSection() {
+  const { t } = useLanguage();
+
+  const statsList = [
+    { value: '1,200+', label: t('hero.eventsDelivered'), description: t('why.f2Desc') },
+    { value: '27+ Yrs', label: t('hero.yearsLegacy'), description: t('about.subtitle') },
+    { value: '500K+', label: t('hero.audienceCap'), description: t('hero.stalinStageDesc') },
+    { value: '100%', label: t('hero.safetyCertified'), description: t('hero.safetyDesc') },
+  ];
+
   return (
     <section className="bg-obsidian-900 border-y border-gold-500/20 py-16 lg:py-20 relative overflow-hidden">
       
@@ -12,7 +21,7 @@ export default function StatsSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {STATS.map((stat, index) => (
+          {statsList.map((stat, index) => (
             <div
               key={index}
               className="bg-obsidian-950/80 border border-gold-500/30 p-8 rounded-2xl text-center space-y-2 hover:border-gold-400 transition-all duration-300 shadow-xl gold-glow"

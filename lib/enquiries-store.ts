@@ -14,7 +14,7 @@ export interface EnquiryRecord {
   message: string;
   createdAt: string;
   status: 'new' | 'contacted' | 'confirmed' | 'archived';
-  adminNotes?: string;
+  notes?: string;
 }
 
 const dataDir = path.join(process.cwd(), 'data');
@@ -35,7 +35,7 @@ let memoryEnquiriesStore: EnquiryRecord[] = [
     message: 'Looking for a 150ft wide political mega stage setup with bulletproof podium and high LED backdrops.',
     createdAt: new Date(Date.now() - 3600000).toISOString(),
     status: 'new',
-    adminNotes: 'High priority lead for political convention.'
+    notes: 'High priority lead for political convention.'
   }
 ];
 
@@ -92,7 +92,7 @@ export function addEnquiry(data: Omit<EnquiryRecord, 'id' | 'createdAt' | 'statu
   return newEnquiry;
 }
 
-export function updateEnquiry(id: string, updates: Partial<Pick<EnquiryRecord, 'status' | 'adminNotes'>>): EnquiryRecord | null {
+export function updateEnquiry(id: string, updates: Partial<Pick<EnquiryRecord, 'status' | 'notes'>>): EnquiryRecord | null {
   const index = memoryEnquiriesStore.findIndex(r => r.id === id);
   if (index !== -1) {
     memoryEnquiriesStore[index] = { ...memoryEnquiriesStore[index], ...updates };

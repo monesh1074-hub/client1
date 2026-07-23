@@ -2,38 +2,41 @@
 
 import React from 'react';
 import { ShieldCheck, Zap, Layers, Sparkles, Clock, Crown } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function WhyChooseUs() {
+  const { t } = useLanguage();
+
   const differentiators = [
     {
       icon: Layers,
-      title: "Turnkey Stage Execution",
-      description: "From structural steel trussing, wooden flooring, and acoustics to LED backdrops and floral styling—we handle every component under one roof."
+      title: t('why.f1Title'),
+      description: t('why.f1Desc')
     },
     {
       icon: Crown,
-      title: "Mega-Scale Capacity",
-      description: "Equipped to build 200ft wide stages engineered for 500,000+ public rally crowds, heavy equipment, and multi-dignitary seating."
+      title: t('hero.badge'),
+      description: t('hero.desc')
     },
     {
       icon: Zap,
-      title: "24/7 Rapid Deployment",
-      description: "Our dedicated technical workforce of 150+ craftsmen works round-the-clock for overnight mega stage setups and tight deadline events."
+      title: t('why.f2Title'),
+      description: t('why.f2Desc')
     },
     {
       icon: Sparkles,
-      title: "Custom Floral & 3D Props",
-      description: "Specialized artisans crafting fresh exotic flower Mandapams and bespoke 3D film-themed set designs."
+      title: t('services.subtitle'),
+      description: t('hero.cinemaPartner')
     },
     {
       icon: ShieldCheck,
-      title: "VIP Security Compliance",
-      description: "Strict adherence to VVIP protocol, bulletproof speaker podium enclosures, and certified fire-retardant structural materials."
+      title: t('why.f3Title'),
+      description: t('why.f3Desc')
     },
     {
       icon: Clock,
-      title: "100% On-Time Record",
-      description: "15 years, 1,200+ projects, and ZERO delayed handovers. When we promise a completion time, your stage is ready hours before curtain-raise."
+      title: t('why.f4Title'),
+      description: t('why.f4Desc')
     }
   ];
 
@@ -44,13 +47,13 @@ export default function WhyChooseUs() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
-            The Kalai Decorators Advantage
+            {t('why.subtitle')}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-            Why High-Profile Organizers Trust <span className="text-gold-gradient">Kalai Decorators</span>
+            {t('why.title')}
           </h2>
           <p className="text-sm sm:text-base text-slate-300">
-            We don&apos;t just decorate stages; we engineer memorable experiences with unmatched structural precision and aesthetic luxury.
+            {t('about.p1')}
           </p>
         </div>
 

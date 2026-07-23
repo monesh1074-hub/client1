@@ -4,6 +4,7 @@ export interface PortfolioItem {
   category: 'political' | 'movies' | 'weddings' | 'government' | 'temple' | 'corporate';
   categoryLabel: string;
   image: string;
+  gallery?: string[];
   location: string;
   scale: string;
   description: string;
@@ -54,34 +55,119 @@ export interface FAQItem {
   category: string;
 }
 
-export const COMPANY_DETAILS = {
-  name: "Kalai Decorators",
-  tagline: "Premier Event Decoration & Grand Stage Setup Specialist",
-  subTagline: "Crafting India's Most Spectacular Mega Stages, Political Rallies, Movie Audio Launches & Royal Weddings",
-  founder: "Perumal",
-  founderTitle: "Founder & Master Creative Director",
-  establishedYear: "2010",
-  experienceYears: "15+",
-  eventsCompleted: "1,200+",
-  maxAudienceCapacity: "500,000+",
-  onTimeDeliveryRate: "100%",
-  
+export interface CompanyDetails {
+  name: string;
+  tagline: string;
+  foundedYear: number;
+  yearsOfExperience: number;
+  founder: {
+    name: string;
+    role: string;
+    experience: string;
+    bio: string;
+    specialties: string[];
+    movieSetHighlights: string[];
+    celebrityWork: string[];
+    photoUrl: string;
+  };
   contact: {
-    primaryPhone: "+91 6381147719",
-    altPhone: "+91 9994849904",
-    whatsappPrimary: "+91 9940768571",
-    whatsappAlt: "+91 9994849904",
+    primaryPhone: string;
+    secondaryPhone: string;
+    altPhone: string;
+    email: string;
+    primaryEmail: string;
+    altEmail: string;
+    ownerEmails: string[];
+    whatsappNumber: string;
+    formattedAddress: string;
+    googleMapsUrl: string;
+    officeAddress: {
+      street: string;
+      area: string;
+      city: string;
+      state: string;
+      pincode: string;
+      country: string;
+      full: string;
+    };
+    serviceAreas: string[];
+  };
+  socialLinks: {
+    whatsapp: string;
+    whatsappAlt: string;
+    instagram: string;
+  };
+}
+
+export const COMPANY_DETAILS: CompanyDetails = {
+  name: "Kalai Decorators",
+  tagline: "27+ Years of High-Capacity Event Staging & Cinema Set Mastery (Est. 1999)",
+  foundedYear: 1999,
+  yearsOfExperience: 27,
+  founder: {
+    name: "Perumal",
+    role: "Founder & Master Stage Decorator",
+    experience: "27+ Years of Industry Leadership",
+    bio: "Under the visionary leadership of Founder Perumal, Kalai Decorators has spent over 27 years transforming stadiums, public grounds, and venues across South India into majestic, high-capacity event arenas. Specializing in engineered political mega-rally stages and Kollywood blockbuster cinema set productions.",
+    specialties: [
+      "Engineered Steel Trussing & Heavy Load Stage Decks",
+      "VVIP Bulletproof Speaker Podiums & Political Rally Arenas",
+      "Blockbuster Film Set Production & Audio Launch Arenas (Vikram, Master, Leo, Kaithi)",
+      "Royal Wedding Mandapams with Imported Exotic Florals"
+    ],
+    movieSetHighlights: [
+      "Vikram (Kamal Haasan)",
+      "Master (Thalapathy Vijay)",
+      "Leo (Thalapathy Vijay)",
+      "Kaithi (Karthi)"
+    ],
+    celebrityWork: [
+      "Thalapathy Vijay",
+      "Kamal Haasan",
+      "Karthi",
+      "Chief Minister M.K. Stalin"
+    ],
+    photoUrl: "/images/founder-perumal-vijay.jpeg"
+  },
+  contact: {
+    primaryPhone: "+91 98402 85854",
+    secondaryPhone: "+91 98409 60322",
+    altPhone: "+91 98409 60322",
+    email: "Kalaidecorators2026@gmail.com",
     primaryEmail: "Kalaidecorators2026@gmail.com",
     altEmail: "yw73444@gmail.com",
-    formattedAddress: "No. 2/11, Jayalakshmi Nagar, Ganapathi Street, Alapakkam, Chennai, Tamil Nadu, India",
-    googleMapsUrl: "https://maps.google.com/?q=Alapakkam+Chennai+Tamil+Nadu",
-    operatingHours: "24/7 Operations & Rapid On-Site Setup",
+    ownerEmails: [
+      "Kalaidecorators2026@gmail.com",
+      "yw73444@gmail.com"
+    ],
+    whatsappNumber: "919940768571",
+    formattedAddress: "No. 4/450, Alapakkam Main Road, Alapakkam, Chennai, Tamil Nadu - 600116",
+    googleMapsUrl: "https://www.google.com/maps/dir/?api=1&destination=Alapakkam,Chennai,Tamil+Nadu",
+    officeAddress: {
+      street: "No. 4/450, Alapakkam Main Road, Near Maduravoyal",
+      area: "Alapakkam",
+      city: "Chennai",
+      state: "Tamil Nadu",
+      pincode: "600116",
+      country: "India",
+      full: "No. 4/450, Alapakkam Main Road, Alapakkam, Chennai, Tamil Nadu - 600116"
+    },
+    serviceAreas: [
+      "Chennai",
+      "Coimbatore",
+      "Madurai",
+      "Trichy",
+      "Salem",
+      "Tirunelveli",
+      "Vellore",
+      "All Districts of Tamil Nadu",
+      "South India Wide Execution"
+    ]
   },
-  
   socialLinks: {
-    whatsapp: "https://wa.me/919940768571?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20event%20decoration%20services.",
-    whatsappAlt: "https://wa.me/919994849904?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20stage%20setup.",
-    instagram: "https://www.instagram.com/kalai_decorator_",
+    whatsapp: "https://wa.me/919940768571?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20event%20stage%20decoration%20services.",
+    whatsappAlt: "https://wa.me/919840960322?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20stage%20setup.",
+    instagram: "https://www.instagram.com/kalai_decorators?igsh=dngycTltOHp4cXZz"
   }
 };
 
@@ -101,24 +187,24 @@ export const SERVICES: ServiceItem[] = [
       "Fast 12-hour turnaround for emergency public rallies"
     ],
     idealFor: "State Rallies, Party Conventions, Public Address Campaigns & Campaign Launches",
-    image: "/images/portfolio/kalai-event-01.jpeg"
+    image: "/images/client/cm-stalin/stalin-set-01.jpeg"
   },
   {
     id: "movie-launches",
-    title: "Movie Audio Launches & Film Promotions",
+    title: "Movie Audio Launches & Cinema Set Production",
     slug: "movie-audio-launches",
     iconName: "Clapperboard",
-    shortDesc: "Theatrically lit grandeur stages, red carpet walkways, immersive 3D thematic backdrops, and media press arenas for Indian cinema blockbusters.",
-    fullDesc: "Kalai Decorators is the trusted partner for Kollywood and Indian cinema's biggest audio releases and star-studded promotions. We turn stadiums and auditoriums into cinematic wonderlands with custom 3D props, dynamic motorized stage reveals, and press-friendly red carpets.",
+    shortDesc: "Theatrically lit grandeur stages, red carpet arenas, 3D thematic set designs, and audio launches for blockbusters including Vikram, Master, Leo, Kaithi, and more.",
+    fullDesc: "Kalai Decorators is the trusted stage design & set production partner for Indian cinema blockbusters like Vikram, Master, Leo, Kaithi, and many more. We turn stadiums and film sets into cinematic wonderlands with custom 3D props, motorized stage reveals, and star-studded red carpets.",
     features: [
-      "Custom 3D film-themed set designs & motorized entrance gates",
+      "Custom 3D film-themed set designs & motorized entrance gates (Vikram, Master, Leo, Kaithi)",
       "Grand star-studded red carpet fan arenas & media photobooths",
       "High-lumen theatrical lighting rigs & pyrotechnic-safe zones",
       "VIP celebrity lounge seating & sound-dampened acoustics",
       "Seamless integration with live television broadcast cameras"
     ],
-    idealFor: "Blockbuster Audio Launches, Teaser Reveals, Success Meets & Celebrity Fan Galas",
-    image: "/images/portfolio/kalai-event-02.jpeg"
+    idealFor: "Blockbuster Audio Launches, Cinema Set Designs, Teaser Reveals & Success Meets",
+    image: "/images/client/gallery/real-event-01.jpeg"
   },
   {
     id: "royal-weddings",
@@ -135,7 +221,7 @@ export const SERVICES: ServiceItem[] = [
       "Complete bride & groom stage thrones with luxury drapery"
     ],
     idealFor: "Royal Weddings, Grand Receptions, Engagement Ceremonies & Sangeet Nights",
-    image: "/images/portfolio/kalai-event-03.jpeg"
+    image: "/images/client/marriage/wedding-set-01.jpeg"
   },
   {
     id: "government-functions",
@@ -152,7 +238,7 @@ export const SERVICES: ServiceItem[] = [
       "Comprehensive fire-retardant material usage"
     ],
     idealFor: "Infrastructure Inaugurations, State Award Functions & National Summits",
-    image: "/images/portfolio/kalai-event-04.jpeg"
+    image: "/images/client/pongal/pongal-set-01.jpeg"
   },
   {
     id: "temple-festivals",
@@ -169,7 +255,7 @@ export const SERVICES: ServiceItem[] = [
       "Weather-shielded mandapams for multi-day utsavams"
     ],
     idealFor: "Temple Brahmotsavams, Devotional Discourses, Classical Dance & Music Galas",
-    image: "/images/portfolio/kalai-event-05.jpeg"
+    image: "/images/client/temple/temple-set-01.jpeg"
   },
   {
     id: "corporate-events",
@@ -186,157 +272,198 @@ export const SERVICES: ServiceItem[] = [
       "Zero-defect execution for high-stakes corporate summits"
     ],
     idealFor: "Product Launches, Enterprise Conventions, Award Galas & Annual General Meetings",
-    image: "/images/portfolio/kalai-event-06.jpeg"
+    image: "/images/client/behind-scenes/behind-work-01.jpeg"
   }
 ];
 
 export const FEATURED_PROJECTS: PortfolioItem[] = [
   {
-    id: "political-mega-rally-chennai",
-    title: "State Political Mega Convention & Rally",
+    id: "cm-stalin-mega-rally",
+    title: "CM M.K. Stalin State Public Convention & Rally",
     category: "political",
-    categoryLabel: "Political Rally",
-    image: "/images/portfolio/kalai-event-38.jpeg",
-    location: "YMCA Grounds, Royapettah, Chennai",
-    scale: "300,000+ Attendees",
-    description: "A monumental 180-foot wide mega stage featuring bulletproof VIP security enclosures, 4K LED video wall mounting, and integrated 100kW audio trussing built in under 18 hours.",
+    categoryLabel: "Client Recommended Project",
+    image: "/images/client/cm-stalin/stalin-set-01.jpeg",
+    gallery: Array.from({ length: 20 }, (_, i) => `/images/client/cm-stalin/stalin-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Chennai & Statewide Grounds, Tamil Nadu",
+    scale: "20 Photo Album • 500,000+ Crowd Capacity",
+    description: "Client recommended top project execution featuring state political rally staging, high-output LED backdrops, bulletproof VIP podium, and heavy-duty steel trussing.",
     highlights: [
-      "180ft Reinforced Steel Stage Deck",
-      "Bulletproof Glass Speaker Enclosure",
-      "300,000+ Crowd Capacity Setup",
-      "Zero Delay Turnaround"
+      "CM M.K. Stalin State Public Rally Stage",
+      "VVIP Bulletproof Speaker Podium",
+      "500,000+ Crowd Capacity Arena",
+      "Zero-Delay Rapid Setup"
     ],
     featured: true
   },
   {
-    id: "kollywood-blockbuster-audio-launch",
-    title: "Star-Studded Cinema Audio Release",
-    category: "movies",
-    categoryLabel: "Movie Audio Launch",
-    image: "/images/portfolio/kalai-event-64.jpeg",
-    location: "Nehru Indoor Stadium, Chennai",
-    scale: "15,000 Stadium Audience + Live TV",
-    description: "Immersive 3D thematic stage featuring motorized entrance gates, 50ft high custom movie props, and a 100-meter celebrity red carpet walkway for South India's biggest film stars.",
+    id: "dmk-pongal-grand-festival",
+    title: "DMK State Festival & Pongal Celebration Stage",
+    category: "government",
+    categoryLabel: "Client Featured Event",
+    image: "/images/client/pongal/pongal-set-01.jpeg",
+    gallery: Array.from({ length: 7 }, (_, i) => `/images/client/pongal/pongal-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Chennai Public Grounds, Tamil Nadu",
+    scale: "7 Photo Album • Statewide Cultural Gala",
+    description: "Massive festive stage setup and traditional Pongal festival decor crafted for state political leaders and cultural celebrations.",
     highlights: [
-      "3D Architectural Prop Set Design",
-      "100m VIP Red Carpet Arena",
-      "Motorized Stage Reveal Gate",
-      "Broadcast-Grade Lighting Rig"
+      "Traditional Tamil Heritage Theme",
+      "High-Output LED Video Wall Mounting",
+      "VIP Seating & Press Arena",
+      "Turnkey Production"
     ],
     featured: true
   },
   {
-    id: "royal-palace-wedding-mandapam",
-    title: "Grand Royal Floral Palace Wedding",
+    id: "royal-palace-marriage-set",
+    title: "Grand Royal Wedding Floral Mandapam",
     category: "weddings",
-    categoryLabel: "Royal Wedding",
-    image: "/images/portfolio/kalai-event-78.jpeg",
-    location: "Le Royal Méridien, Chennai",
-    scale: "2,500 VIP Guests",
-    description: "A breathtaking wedding mandapam decorated with 50,000 fresh imported orchids, jasmine cascades, hand-carved golden pillars, and 12 crystal chandeliers.",
+    categoryLabel: "Royal Marriage Event",
+    image: "/images/client/marriage/wedding-set-01.jpeg",
+    gallery: Array.from({ length: 8 }, (_, i) => `/images/client/marriage/wedding-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Le Royal Méridien & Grand Venues, Chennai",
+    scale: "8 Photo Album • 2,500 VIP Guests",
+    description: "A breathtaking wedding mandapam decorated with fresh imported orchids, jasmine cascades, hand-carved golden pillars, and crystal chandeliers.",
     highlights: [
-      "50,000+ Fresh Exotic Flowers",
-      "Custom Carved Gold Temple Pillars",
-      "12 Imperial Crystal Chandeliers",
+      "Fresh Exotic Floral Styling",
+      "Custom Carved Temple Pillars",
+      "Imperial Chandelier Illuminations",
       "150ft Floral Entry Tunnel"
     ],
     featured: true
   },
   {
-    id: "state-govt-infrastructure-summit",
-    title: "State Government Infrastructure Ceremony",
-    category: "government",
-    categoryLabel: "Government Function",
-    image: "/images/portfolio/kalai-event-55.jpeg",
-    location: "Chennai Trade Centre, Nandambakkam",
-    scale: "5,000 Delegates & Dignitaries",
-    description: "Official protocol-compliant main stage featuring soundproof acoustic paneling, VVIP security perimeter, and high-brightness LED backdrop arrays.",
+    id: "heritage-temple-gopuram-utsavam",
+    title: "Divine Temple Brahmotsavam & Gopuram Decor",
+    category: "temple",
+    categoryLabel: "Temple Festival",
+    image: "/images/client/temple/temple-set-01.jpeg",
+    gallery: Array.from({ length: 13 }, (_, i) => `/images/client/temple/temple-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Madurai & Temple Cities, Tamil Nadu",
+    scale: "13 Photo Album • 50,000 Devotees Scale",
+    description: "Traditional South Indian Gopuram stage architecture, sacred floral garlands, and illuminated street arches.",
     highlights: [
-      "VVIP Protocol Approved Seating",
-      "Acoustically Calibrated Sound Truss",
-      "4K LED Video Backdrop Rig",
-      "Rapid Teardown Crew"
+      "South Indian Gopuram Motifs",
+      "Sacred Fresh Floral Garlands",
+      "Devotional Music Acoustics",
+      "Weather-Shield Canopy"
     ],
     featured: true
   }
 ];
 
-export const PORTFOLIO_GALLERY: PortfolioItem[] = Array.from({ length: 90 }, (_, index) => {
-  const fileIndex = String(index + 1).padStart(2, '0');
-  const categories: ('political' | 'movies' | 'weddings' | 'government' | 'temple' | 'corporate')[] = [
-    'political', 'movies', 'weddings', 'government', 'temple', 'corporate'
-  ];
-  const cat = categories[index % categories.length];
-  
-  const labels: Record<string, string> = {
-    political: 'Political Rally',
-    movies: 'Movie Launch',
-    weddings: 'Royal Wedding',
-    government: 'Government Ceremony',
-    temple: 'Temple Festival',
-    corporate: 'Corporate Spectacle'
-  };
+export const PORTFOLIO_GALLERY: PortfolioItem[] = [
+  // 1. CM M.K. Stalin Political Mega Convention Sets Album (20 Photos strictly from cm-stalin/)
+  {
+    id: "album-cm-stalin",
+    title: "CM M.K. Stalin State Political Convention & Rally Sets",
+    category: "political",
+    categoryLabel: "CM Stalin Rally Sets (20 Photos)",
+    image: "/images/client/cm-stalin/stalin-set-01.jpeg",
+    gallery: Array.from({ length: 20 }, (_, i) => `/images/client/cm-stalin/stalin-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "YMCA Grounds, Island Grounds & Statewide Arenas, Tamil Nadu",
+    scale: "20 Full Photos • 500,000+ Crowd Capacity Arena",
+    description: "Authentic mega political rally stage setups, VVIP speaker podiums, bulletproof glass enclosures, and heavy steel trussing engineered for CM M.K. Stalin addresses.",
+    highlights: ["20 Real Event Photos", "VVIP Bulletproof Speaker Podium", "500,000+ Audience Deck", "180ft Steel Trussing Hangar"]
+  },
 
-  const titles: Record<string, string[]> = {
-    political: [
-      "State Level Public Conference Setup",
-      "VIP Public Meeting Stage Arena",
-      "State-Wide Campaign Stage Decor",
-      "Massive Public Rally Stage Setup",
-      "Dignitary Speaker Stage & Canopy"
-    ],
-    movies: [
-      "Cinema Audio Launch Stadium Stage",
-      "Film Teaser Launch Red Carpet Arena",
-      "Celebrity Fan Meet Grand Stage",
-      "Blockbuster Movie Celebration Backdrop",
-      "Star Press Conference Decor"
-    ],
-    weddings: [
-      "Royal Floral Wedding Mandapam",
-      "Grand Reception Stage Illuminations",
-      "Traditional South Indian Temple Weding",
-      "Luxury Floral Entry Archway",
-      "Sangeet Night Decorative Stage"
-    ],
-    government: [
-      "Official Civic Infrastructure Launch",
-      "State Award Function Grand Stage",
-      "Dignitary Summit Protocol Staging",
-      "Public Welfare Scheme Stage Arena",
-      "Government Convention Backdrop"
-    ],
-    temple: [
-      "Divine Gopuram Stage Architecture",
-      "Brahmotsavam Street Arch Illumination",
-      "Carnatic Music Festival Stage",
-      "Devotional Discourse Grand Canopy",
-      "Heritage Temple Celebration Staging"
-    ],
-    corporate: [
-      "Enterprise Tech Summit Mainstage",
-      "Luxury Brand Product Reveal Decor",
-      "Global Corporate Leadership Forum",
-      "Annual Business Gala Backdrop",
-      "Exhibition Keynote Stage Arena"
-    ]
-  };
+  // 2. Grand Royal Wedding Floral Mandapam Sets Album (8 Photos strictly from marriage/)
+  {
+    id: "album-royal-weddings",
+    title: "Grand Royal Wedding Floral Mandapam Sets",
+    category: "weddings",
+    categoryLabel: "Royal Wedding Sets (8 Photos)",
+    image: "/images/client/marriage/wedding-set-01.jpeg",
+    gallery: Array.from({ length: 8 }, (_, i) => `/images/client/marriage/wedding-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Le Royal Méridien, ITC Grand Chola & Grand Venues, Chennai",
+    scale: "8 Full Photos • 3,000 VIP Guest Scale",
+    description: "Breathtaking fresh floral wedding mandapams decorated with imported white orchids, Madurai jasmine cascades, hand-carved golden pillars, and imperial chandeliers.",
+    highlights: ["8 Real Wedding Photos", "Imported Fresh Orchids", "Carved Golden Pillars", "120ft Floral Entry Tunnel"]
+  },
 
-  const titleList = titles[cat];
-  const selectedTitle = titleList[index % titleList.length];
+  // 3. Heritage Temple Gopuram & Utsavam Sets Album (13 Photos strictly from temple/)
+  {
+    id: "album-temple-festivals",
+    title: "Heritage Temple Gopuram & Brahmotsavam Sets",
+    category: "temple",
+    categoryLabel: "Temple Festival Sets (13 Photos)",
+    image: "/images/client/temple/temple-set-01.jpeg",
+    gallery: Array.from({ length: 13 }, (_, i) => `/images/client/temple/temple-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Kapaleeshwarar, Meenakshi & Major Temple Precincts, Tamil Nadu",
+    scale: "13 Full Photos • 150,000 Devotees Scale",
+    description: "Traditional South Indian Gopuram stage architecture, illuminated street welcome arches, organic mango leaf torans, and devotional music pavilions.",
+    highlights: ["13 Real Temple Photos", "5-Tier Gopuram Motif", "LED Street Archways", "Carnatic Music Acoustics"]
+  },
 
-  return {
-    id: `portfolio-${fileIndex}`,
-    title: `${selectedTitle} #${fileIndex}`,
-    category: cat,
-    categoryLabel: labels[cat],
-    image: `/images/portfolio/kalai-event-${fileIndex}.jpeg`,
-    location: index % 2 === 0 ? "Chennai, Tamil Nadu" : "Coimbatore / Madurai, Tamil Nadu",
-    scale: index % 3 === 0 ? "Mega Capacity Event" : "Exclusive VIP Scale",
-    description: `High-definition project execution by Kalai Decorators featuring heavy-duty structural staging, custom backdrops, and precision lighting.`,
-    highlights: ["Custom Theme Design", "Heavy Trussing Infrastructure", "Flawless Execution", "On-Time Turnaround"]
-  };
-});
+  // 4. DMK State Level Pongal Festival Celebration Sets Album (7 Photos strictly from pongal/)
+  {
+    id: "album-dmk-pongal",
+    title: "DMK State Level Pongal Cultural Festival Sets",
+    category: "government",
+    categoryLabel: "DMK Pongal Sets (7 Photos)",
+    image: "/images/client/pongal/pongal-set-01.jpeg",
+    gallery: Array.from({ length: 7 }, (_, i) => `/images/client/pongal/pongal-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Island Grounds, Chennai & Statewide Venues",
+    scale: "7 Full Photos • 50,000 Attendees",
+    description: "Traditional Tamil Harvest Pongal festival stage setups with sugarcane welcome arches, clay pot motifs, Kolam floor art, and state leader address podiums.",
+    highlights: ["7 Real Festival Photos", "Traditional Sugarcane Arches", "Tamil Heritage Kolam Art", "VIP Public Address Podium"]
+  },
+
+  // 5. DMK State Level Christmas Harmony Celebration Sets Album (6 Photos strictly from christmas/)
+  {
+    id: "album-dmk-christmas",
+    title: "DMK State Level Christmas Harmony Celebration Sets",
+    category: "government",
+    categoryLabel: "DMK Christmas Sets (6 Photos)",
+    image: "/images/client/christmas/christmas-set-01.jpeg",
+    gallery: Array.from({ length: 6 }, (_, i) => `/images/client/christmas/christmas-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "St. George's Cathedral & Don Bosco Grounds, Chennai",
+    scale: "6 Full Photos • 20,000 Delegates",
+    description: "Grand Christmas celebration stages featuring 40-foot illuminated star arches, choir performance decks, and festive dignitary lounges.",
+    highlights: ["6 Real Event Photos", "40ft Illuminated Star Arches", "Choir Performance Stage", "Chief Guest Address Podium"]
+  },
+
+  // 6. Behind-The-Scenes Heavy Steel Trussing & Structural Work Album (3 Photos strictly from behind-scenes/)
+  {
+    id: "album-behind-work",
+    title: "Behind-The-Scenes Heavy Steel Trussing & Rigging",
+    category: "corporate",
+    categoryLabel: "Behind The Scenes (3 Photos)",
+    image: "/images/client/behind-scenes/behind-work-01.jpeg",
+    gallery: Array.from({ length: 3 }, (_, i) => `/images/client/behind-scenes/behind-work-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Statewide Field Sites, Tamil Nadu",
+    scale: "3 Full Photos • Structural Rigging",
+    description: "Authentic behind-the-scenes engineering photographs showcasing Kalai Decorators specialized crew erecting heavy steel trusses and overhead lighting frames.",
+    highlights: ["3 Real Field Photos", "Structural Engineering", "Load Tested Scaffolding", "27+ Yrs Safety Record"]
+  },
+
+  // 7. Client High-Priority Recommended Highlights Album (3 Photos strictly from important/)
+  {
+    id: "album-important-highlights",
+    title: "Client Recommended High-Priority Event Highlights",
+    category: "corporate",
+    categoryLabel: "Client Recommended (3 Photos)",
+    image: "/images/client/important/important-01.jpeg",
+    gallery: Array.from({ length: 3 }, (_, i) => `/images/client/important/important-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Prime Public Grounds, Chennai",
+    scale: "3 Full Photos • Featured Showcase",
+    description: "High-priority client recommended project executions showcasing grand stage backdrops, LED video wall mountings, and VIP speaker arenas.",
+    highlights: ["3 High-Priority Photos", "Client Recommended", "Mega Hangar Staging", "Turnkey Execution"]
+  },
+
+  // 8. Kollywood Blockbuster Cinema Audio Launches & Movie Sets Album (40 Photos strictly from gallery/)
+  {
+    id: "album-cinema-sets",
+    title: "Kollywood Blockbuster Cinema Audio Launches & Movie Sets",
+    category: "movies",
+    categoryLabel: "Blockbuster Cinema Sets (40 Photos)",
+    image: "/images/client/gallery/real-event-01.jpeg",
+    gallery: Array.from({ length: 40 }, (_, i) => `/images/client/gallery/real-event-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Jawaharlal Nehru Indoor Stadium & Prasad Studios, Chennai",
+    scale: "40 Full Photos • 25,000 Stadium Audience + Live Broadcast",
+    description: "Massive 3D thematic movie stage designs, custom prop constructions, star-studded red carpet fan arenas, and broadcast lighting created for Thalapathy Vijay blockbusters (Leo, Master), Vikram, and Kaithi.",
+    highlights: ["40 Real Cinema Photos", "Custom 3D Movie Set Architecture", "200m VIP Red Carpet Corridor", "Broadcast-Grade Lighting Rigs"]
+  }
+];
 
 export const STATS: StatItem[] = [
   {
@@ -345,9 +472,9 @@ export const STATS: StatItem[] = [
     description: "Successful grand stage setups completed across South India"
   },
   {
-    value: "15+",
+    value: "27+",
     label: "Years of Mastery",
-    description: "Unmatched expertise under Founder Perumal's leadership"
+    description: "27+ years of excellence (Est. 1999) under Founder Perumal's leadership"
   },
   {
     value: "500K+",
@@ -363,38 +490,38 @@ export const STATS: StatItem[] = [
 
 export const TIMELINE: TimelineItem[] = [
   {
-    year: "2010",
+    year: "1999",
     title: "Foundation of Kalai Decorators",
     subtitle: "Visionary Start in Chennai",
-    description: "Perumal established Kalai Decorators in Alapakkam, Chennai, with a commitment to redefining event stage setup with strength, artistry, and reliability.",
+    description: "Perumal established Kalai Decorators in Alapakkam, Chennai in 1999, embarking on a 27+ year journey of crafting stage structures and event decorations with strength, artistry, and reliability.",
     iconName: "Compass"
   },
   {
-    year: "2014",
-    title: "Expansion into Political Rallies",
-    subtitle: "Engineering Mega Stages",
-    description: "Pioneered heavy-duty structural steel stages capable of accommodating hundreds of VIPs and surviving extreme weather conditions for state rallies.",
-    iconName: "Shield"
-  },
-  {
-    year: "2018",
-    title: "Cinema & Audio Launch Mastery",
-    subtitle: "Kollywood Star Spectacles",
-    description: "Became the preferred stage decor partner for major film production houses, building 3D prop stages for blockbuster movie launches in stadiums.",
+    year: "2006",
+    title: "Expansion into Cinema Sets & Audio Launches",
+    subtitle: "Kollywood Film Spectacles",
+    description: "Pioneered grand thematic stages and movie set backdrops for major film production banners across South India.",
     iconName: "Film"
   },
   {
-    year: "2022",
-    title: "Government Protocol & Royal Weddings",
-    subtitle: "Statewide Recognition",
-    description: "Expanded workforce to 150+ skilled craftsmen, executing high-security government summits and royal destination weddings with equal finesse.",
+    year: "2013",
+    title: "Political Rallies & High-Capacity Stages",
+    subtitle: "Engineering Mega Stages",
+    description: "Engineered heavy-duty structural steel stages capable of accommodating hundreds of VIPs and surviving extreme weather for state rallies.",
+    iconName: "Shield"
+  },
+  {
+    year: "2019",
+    title: "Blockbuster Movie Stage Mastery",
+    subtitle: "Kaithi, Master, Vikram, Leo Set Work",
+    description: "Became the premier stage and set partner for Kollywood blockbusters including Vikram, Master, Leo, Kaithi, and major star releases.",
     iconName: "Crown"
   },
   {
     year: "Present",
-    title: "Industry Leader in Stage Production",
+    title: "27+ Years of Industry Leadership",
     subtitle: "1,200+ Projects Completed",
-    description: "Continuing to lead the industry in Tamil Nadu with state-of-the-art lighting, modular trussing, and breathtaking floral engineering.",
+    description: "Continuing to lead the industry in Tamil Nadu with state-of-the-art lighting, modular trussing, and breathtaking floral & 3D engineering.",
     iconName: "Trophy"
   }
 ];
@@ -413,10 +540,10 @@ export const TESTIMONIALS: TestimonialItem[] = [
     id: "test-2",
     name: "S. V. Ramanan",
     role: "Executive Film Producer",
-    organization: "Kollywood Mega Productions",
-    quote: "Our movie audio launch was held at Nehru Indoor Stadium. The 3D thematic stage created by Kalai Decorators blew away the actors, director, and 15,000 fans! The red carpet setup was world-class.",
+    organization: "Kollywood Cinema Productions",
+    quote: "For our blockbuster movie launches like Vikram, Master, and Leo, Kalai Decorators built breathtaking 3D thematic stages and red carpet fan arenas at Nehru Stadium. Perumal sir and his crew deliver world-class perfection every single time!",
     rating: 5,
-    eventCategory: "Movie Audio Launch"
+    eventCategory: "Movie Audio Launch & Sets"
   },
   {
     id: "test-3",
@@ -440,6 +567,16 @@ export const TESTIMONIALS: TestimonialItem[] = [
 
 export const FAQS: FAQItem[] = [
   {
+    question: "How long has Kalai Decorators been in business?",
+    answer: "Kalai Decorators was established in 1999 by Founder Perumal in Alapakkam, Chennai. We bring over 27+ years of experience in mega stage setups, movie sets, political rallies, royal weddings, and government protocol events.",
+    category: "About Company"
+  },
+  {
+    question: "Which major movies has Kalai Decorators done stage set & audio launch work for?",
+    answer: "We have crafted iconic stage setups, 3D thematic set decor, and audio release arenas for South India's biggest blockbuster movies, including Vikram, Master, Leo, Kaithi, and many more major star vehicles.",
+    category: "Movies & Cinema Sets"
+  },
+  {
     question: "How far in advance should we book Kalai Decorators for an event?",
     answer: "For major political rallies, movie audio launches, or royal weddings, we recommend booking 2 to 4 weeks in advance. However, for urgent requirements, our 24/7 rapid deployment team can mobilize within 12 to 24 hours anywhere in Tamil Nadu.",
     category: "Booking & Timeline"
@@ -448,11 +585,6 @@ export const FAQS: FAQItem[] = [
     question: "Do you handle outdoor events with weather-proofing and safety compliance?",
     answer: "Yes, absolutely. All our heavy-duty stage structures, steel trussing, and canopies are engineered for wind resistance, rain protection, and high load-bearing safety. We comply fully with structural safety and fire-retardant standards.",
     category: "Safety & Engineering"
-  },
-  {
-    question: "Can you create custom 3D themes for film launches or branded corporate events?",
-    answer: "Yes! Founder Perumal and our architectural design team craft custom 3D props, motorized entrance gates, illuminated logos, and bespoke backdrops tailored to your specific movie theme or corporate branding.",
-    category: "Design & Customization"
   },
   {
     question: "What geographical locations do you cover?",
