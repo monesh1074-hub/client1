@@ -450,18 +450,19 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
     highlights: ["3 High-Priority Photos", "Client Recommended", "Mega Hangar Staging", "Turnkey Execution"]
   },
 
-  // 8. Kollywood Blockbuster Cinema Audio Launches & Movie Sets Album (40 Photos strictly from gallery/)
+  // 8. Kollywood Blockbuster Cinema Audio Launches & Movie Sets Album (37 Authentic Photos)
   {
     id: "album-cinema-sets",
     title: "Kollywood Blockbuster Cinema Audio Launches & Movie Sets",
     category: "movies",
-    categoryLabel: "Blockbuster Cinema Sets (40 Photos)",
+    categoryLabel: "Movie Sets (37 Photos)",
     image: "/images/client/gallery/real-event-01.jpeg",
-    gallery: Array.from({ length: 40 }, (_, i) => `/images/client/gallery/real-event-${String(i + 1).padStart(2, '0')}.jpeg`),
+    gallery: Array.from({ length: 40 }, (_, i) => `/images/client/gallery/real-event-${String(i + 1).padStart(2, '0')}.jpeg`)
+      .filter(url => !url.includes('real-event-02') && !url.includes('real-event-03') && !url.includes('real-event-06')),
     location: "Jawaharlal Nehru Indoor Stadium & Prasad Studios, Chennai",
-    scale: "40 Full Photos • 25,000 Stadium Audience + Live Broadcast",
+    scale: "37 Authentic Photos • 25,000 Stadium Audience + Live Broadcast",
     description: "Massive 3D thematic movie stage designs, custom prop constructions, star-studded red carpet fan arenas, and broadcast lighting created for Thalapathy Vijay blockbusters (Leo, Master), Vikram, and Kaithi.",
-    highlights: ["40 Real Cinema Photos", "Custom 3D Movie Set Architecture", "200m VIP Red Carpet Corridor", "Broadcast-Grade Lighting Rigs"]
+    highlights: ["37 Real Cinema Photos", "Custom 3D Movie Set Architecture", "200m VIP Red Carpet Corridor", "Broadcast-Grade Lighting Rigs"]
   }
 ];
 
