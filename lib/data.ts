@@ -130,9 +130,9 @@ export const COMPANY_DETAILS: CompanyDetails = {
     photoUrl: "/images/founder-perumal-vijay.jpeg"
   },
   contact: {
-    primaryPhone: "+91 98402 85854",
-    secondaryPhone: "+91 98409 60322",
-    altPhone: "+91 98409 60322",
+    primaryPhone: "+91 63811 47719",
+    secondaryPhone: "+91 99948 49904",
+    altPhone: "+91 99948 49904",
     email: "Kalaidecorators2026@gmail.com",
     primaryEmail: "Kalaidecorators2026@gmail.com",
     altEmail: "yw73444@gmail.com",
@@ -166,7 +166,7 @@ export const COMPANY_DETAILS: CompanyDetails = {
   },
   socialLinks: {
     whatsapp: "https://wa.me/919940768571?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20event%20stage%20decoration%20services.",
-    whatsappAlt: "https://wa.me/919840960322?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20stage%20setup.",
+    whatsappAlt: "https://wa.me/919994849904?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20stage%20setup.",
     instagram: "https://www.instagram.com/kalai_decorators?igsh=dngycTltOHp4cXZz"
   }
 };

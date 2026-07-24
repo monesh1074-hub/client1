@@ -74,7 +74,7 @@ export default function ContactSection() {
                     rel="noopener noreferrer"
                     className="block text-sm text-emerald-400 hover:underline"
                   >
-                    +91 98409 60322 (Support Line)
+                    +91 99948 49904 (Support Line)
                   </a>
                 </div>
               </div>

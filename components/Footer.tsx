@@ -82,7 +82,7 @@ export default function Footer() {
             <div className="space-y-2 text-xs">
               <div className="flex items-center space-x-2 text-slate-300">
                 <Phone className="w-3.5 h-3.5 text-gold-400 shrink-0" />
-                <span>+91 98402 85854 | +91 98409 60322</span>
+                <span>+91 63811 47719 | +91 99948 49904</span>
               </div>
               <div className="flex items-center space-x-2 text-emerald-400">
                 <MessageSquare className="w-3.5 h-3.5 shrink-0" />
