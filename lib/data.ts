@@ -187,7 +187,7 @@ export const SERVICES: ServiceItem[] = [
       "Fast 12-hour turnaround for emergency public rallies"
     ],
     idealFor: "State Rallies, Party Conventions, Public Address Campaigns & Campaign Launches",
-    image: "/images/client/cm-stalin/stalin-set-01.jpeg"
+    image: "/images/client/cm-stalin/stalin-set-13.jpeg"
   },
   {
     id: "movie-launches",
@@ -278,20 +278,20 @@ export const SERVICES: ServiceItem[] = [
 
 export const FEATURED_PROJECTS: PortfolioItem[] = [
   {
-    id: "cm-stalin-mega-rally",
-    title: "CM M.K. Stalin State Public Convention & Rally",
+    id: "cm-stalin-heritage-exhibition",
+    title: "CM M.K. Stalin State Heritage & Cultural Exhibition",
     category: "political",
     categoryLabel: "Client Recommended Project",
-    image: "/images/client/cm-stalin/stalin-set-01.jpeg",
-    gallery: Array.from({ length: 20 }, (_, i) => `/images/client/cm-stalin/stalin-set-${String(i + 1).padStart(2, '0')}.jpeg`),
-    location: "Chennai & Statewide Grounds, Tamil Nadu",
-    scale: "20 Photo Album • 500,000+ Crowd Capacity",
-    description: "Client recommended top project execution featuring state political rally staging, high-output LED backdrops, bulletproof VIP podium, and heavy-duty steel trussing.",
+    image: "/images/client/important/important-01.jpeg",
+    gallery: Array.from({ length: 33 }, (_, i) => `/images/client/important/important-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Chennai Convention Centre & Statewide Precincts, Tamil Nadu",
+    scale: "33 Photo Album • State Dignitary Summit",
+    description: "Client recommended top project execution featuring custom-crafted wooden paneling, lit framed art galleries, marigold floral trims, and dignitary exhibition staging.",
     highlights: [
-      "CM M.K. Stalin State Public Rally Stage",
-      "VVIP Bulletproof Speaker Podium",
-      "500,000+ Crowd Capacity Arena",
-      "Zero-Delay Rapid Setup"
+      "CM M.K. Stalin Heritage Art Gallery",
+      "Custom Wooden Paneling & Framing",
+      "Illuminated Showcase Lighting Rigs",
+      "State Dignitary Convention Pavilion"
     ],
     featured: true
   },
@@ -352,49 +352,63 @@ export const FEATURED_PROJECTS: PortfolioItem[] = [
 ];
 
 export const PORTFOLIO_GALLERY: PortfolioItem[] = [
-  // 1. CM M.K. Stalin Political Mega Convention Sets Album (20 Photos strictly from cm-stalin/)
+  // 1. CM M.K. Stalin Political Mega Convention Sets Album (9 Photos strictly from cm-stalin/)
   {
     id: "album-cm-stalin",
     title: "CM M.K. Stalin State Political Convention & Rally Sets",
     category: "political",
-    categoryLabel: "CM Stalin Rally Sets (20 Photos)",
+    categoryLabel: "CM Stalin Rally Sets (9 Photos)",
     image: "/images/client/cm-stalin/stalin-set-01.jpeg",
-    gallery: Array.from({ length: 20 }, (_, i) => `/images/client/cm-stalin/stalin-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    gallery: Array.from({ length: 9 }, (_, i) => `/images/client/cm-stalin/stalin-set-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "YMCA Grounds, Island Grounds & Statewide Arenas, Tamil Nadu",
-    scale: "20 Full Photos • 500,000+ Crowd Capacity Arena",
+    scale: "9 Full Photos • 500,000+ Crowd Capacity Arena",
     description: "Authentic mega political rally stage setups, VVIP speaker podiums, bulletproof glass enclosures, and heavy steel trussing engineered for CM M.K. Stalin addresses.",
-    highlights: ["20 Real Event Photos", "VVIP Bulletproof Speaker Podium", "500,000+ Audience Deck", "180ft Steel Trussing Hangar"]
+    highlights: ["9 Real Event Photos", "VVIP Bulletproof Speaker Podium", "500,000+ Audience Deck", "180ft Steel Trussing Hangar"]
   },
 
-  // 2. Grand Royal Wedding Floral Mandapam Sets Album (8 Photos strictly from marriage/)
+  // 2. DMK State Level Manadu Mega Rally Arena Album (8 Photos from dmk-manadu/)
+  {
+    id: "album-dmk-manadu",
+    title: "DMK State Manadu Mega Rally Arena & Conventions",
+    category: "political",
+    categoryLabel: "DMK Manadu Rally Sets (8 Photos)",
+    image: "/images/client/dmk-manadu/dmk-manadu-01.jpeg",
+    gallery: Array.from({ length: 8 }, (_, i) => `/images/client/dmk-manadu/dmk-manadu-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Statewide Manadu Grounds, Tamil Nadu",
+    scale: "8 Full Photos • 500,000+ Audience Scale",
+    description: "Aerial views and wide arena photography of DMK State Manadu conventions, massive political rally grounds, and state dignitary stages.",
+    highlights: ["8 Real Manadu Photos", "Aerial Rally Arena View", "State Convention Staging", "500K Audience Ground"]
+  },
+
+  // 3. Grand Royal Wedding Floral Mandapam Sets Album (7 Photos strictly from marriage/)
   {
     id: "album-royal-weddings",
     title: "Grand Royal Wedding Floral Mandapam Sets",
     category: "weddings",
-    categoryLabel: "Royal Wedding Sets (8 Photos)",
+    categoryLabel: "Royal Wedding Sets (7 Photos)",
     image: "/images/client/marriage/wedding-set-01.jpeg",
-    gallery: Array.from({ length: 8 }, (_, i) => `/images/client/marriage/wedding-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    gallery: Array.from({ length: 7 }, (_, i) => `/images/client/marriage/wedding-set-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "Le Royal Méridien, ITC Grand Chola & Grand Venues, Chennai",
-    scale: "8 Full Photos • 3,000 VIP Guest Scale",
+    scale: "7 Full Photos • 3,000 VIP Guest Scale",
     description: "Breathtaking fresh floral wedding mandapams decorated with imported white orchids, Madurai jasmine cascades, hand-carved golden pillars, and imperial chandeliers.",
-    highlights: ["8 Real Wedding Photos", "Imported Fresh Orchids", "Carved Golden Pillars", "120ft Floral Entry Tunnel"]
+    highlights: ["7 Real Wedding Photos", "Imported Fresh Orchids", "Carved Golden Pillars", "120ft Floral Entry Tunnel"]
   },
 
-  // 3. Heritage Temple Gopuram & Utsavam Sets Album (13 Photos strictly from temple/)
+  // 4. Heritage Temple Gopuram & Utsavam Sets Album (36 Photos strictly from temple/)
   {
     id: "album-temple-festivals",
     title: "Heritage Temple Gopuram & Brahmotsavam Sets",
     category: "temple",
-    categoryLabel: "Temple Festival Sets (13 Photos)",
+    categoryLabel: "Temple Festival Sets (36 Photos)",
     image: "/images/client/temple/temple-set-01.jpeg",
-    gallery: Array.from({ length: 13 }, (_, i) => `/images/client/temple/temple-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    gallery: Array.from({ length: 36 }, (_, i) => `/images/client/temple/temple-set-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "Kapaleeshwarar, Meenakshi & Major Temple Precincts, Tamil Nadu",
-    scale: "13 Full Photos • 150,000 Devotees Scale",
+    scale: "36 Full Photos • 150,000 Devotees Scale",
     description: "Traditional South Indian Gopuram stage architecture, illuminated street welcome arches, organic mango leaf torans, and devotional music pavilions.",
-    highlights: ["13 Real Temple Photos", "5-Tier Gopuram Motif", "LED Street Archways", "Carnatic Music Acoustics"]
+    highlights: ["36 Real Temple Photos", "5-Tier Gopuram Motif", "LED Street Archways", "Carnatic Music Acoustics"]
   },
 
-  // 4. DMK State Level Pongal Festival Celebration Sets Album (7 Photos strictly from pongal/)
+  // 5. DMK State Level Pongal Festival Celebration Sets Album (7 Photos strictly from pongal/)
   {
     id: "album-dmk-pongal",
     title: "DMK State Level Pongal Cultural Festival Sets",
@@ -408,61 +422,88 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
     highlights: ["7 Real Festival Photos", "Traditional Sugarcane Arches", "Tamil Heritage Kolam Art", "VIP Public Address Podium"]
   },
 
-  // 5. DMK State Level Christmas Harmony Celebration Sets Album (6 Photos strictly from christmas/)
+  // 6. DMK State Level Christmas Harmony Celebration Sets Album (4 Photos strictly from christmas/)
   {
     id: "album-dmk-christmas",
     title: "DMK State Level Christmas Harmony Celebration Sets",
     category: "government",
-    categoryLabel: "DMK Christmas Sets (6 Photos)",
+    categoryLabel: "DMK Christmas Sets (4 Photos)",
     image: "/images/client/christmas/christmas-set-01.jpeg",
-    gallery: Array.from({ length: 6 }, (_, i) => `/images/client/christmas/christmas-set-${String(i + 1).padStart(2, '0')}.jpeg`),
+    gallery: Array.from({ length: 4 }, (_, i) => `/images/client/christmas/christmas-set-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "St. George's Cathedral & Don Bosco Grounds, Chennai",
-    scale: "6 Full Photos • 20,000 Delegates",
+    scale: "4 Full Photos • 20,000 Delegates",
     description: "Grand Christmas celebration stages featuring 40-foot illuminated star arches, choir performance decks, and festive dignitary lounges.",
-    highlights: ["6 Real Event Photos", "40ft Illuminated Star Arches", "Choir Performance Stage", "Chief Guest Address Podium"]
+    highlights: ["4 Real Event Photos", "40ft Illuminated Star Arches", "Choir Performance Stage", "Chief Guest Address Podium"]
   },
 
-  // 6. Behind-The-Scenes Heavy Steel Trussing & Structural Work Album (3 Photos strictly from behind-scenes/)
+  // 7. Behind-The-Scenes Heavy Steel Trussing & Structural Work Album (141 Photos strictly from behind-scenes/)
   {
     id: "album-behind-work",
     title: "Behind-The-Scenes Heavy Steel Trussing & Rigging",
     category: "corporate",
-    categoryLabel: "Behind The Scenes (3 Photos)",
+    categoryLabel: "Behind The Scenes (141 Photos)",
     image: "/images/client/behind-scenes/behind-work-01.jpeg",
-    gallery: Array.from({ length: 3 }, (_, i) => `/images/client/behind-scenes/behind-work-${String(i + 1).padStart(2, '0')}.jpeg`),
+    gallery: Array.from({ length: 141 }, (_, i) => `/images/client/behind-scenes/behind-work-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "Statewide Field Sites, Tamil Nadu",
-    scale: "3 Full Photos • Structural Rigging",
+    scale: "141 Full Photos • Structural Rigging",
     description: "Authentic behind-the-scenes engineering photographs showcasing Kalai Decorators specialized crew erecting heavy steel trusses and overhead lighting frames.",
-    highlights: ["3 Real Field Photos", "Structural Engineering", "Load Tested Scaffolding", "27+ Yrs Safety Record"]
+    highlights: ["141 Real Field Photos", "Structural Engineering", "Load Tested Scaffolding", "27+ Yrs Safety Record"]
   },
 
-  // 7. Client High-Priority Recommended Highlights Album (3 Photos strictly from important/)
+  // 8. Client High-Priority Recommended Highlights Album (18 Photos strictly from important to add/)
   {
     id: "album-important-highlights",
     title: "Client Recommended High-Priority Event Highlights",
     category: "corporate",
-    categoryLabel: "Client Recommended (3 Photos)",
+    categoryLabel: "Client Recommended (18 Photos)",
     image: "/images/client/important/important-01.jpeg",
-    gallery: Array.from({ length: 3 }, (_, i) => `/images/client/important/important-${String(i + 1).padStart(2, '0')}.jpeg`),
+    gallery: Array.from({ length: 18 }, (_, i) => `/images/client/important/important-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "Prime Public Grounds, Chennai",
-    scale: "3 Full Photos • Featured Showcase",
+    scale: "18 Full Photos • Featured Showcase",
     description: "High-priority client recommended project executions showcasing grand stage backdrops, LED video wall mountings, and VIP speaker arenas.",
-    highlights: ["3 High-Priority Photos", "Client Recommended", "Mega Hangar Staging", "Turnkey Execution"]
+    highlights: ["18 High-Priority Photos", "Client Recommended", "Mega Hangar Staging", "Turnkey Execution"]
   },
 
-  // 8. Kollywood Blockbuster Cinema Audio Launches & Movie Sets Album (37 Authentic Photos)
+  // 9. CM Stalin Important Set for Card Portfolio (7 Photos strictly from stalin important set for card portfolio/)
   {
-    id: "album-cinema-sets",
-    title: "Kollywood Blockbuster Cinema Audio Launches & Movie Sets",
-    category: "movies",
-    categoryLabel: "Movie Sets (37 Photos)",
-    image: "/images/client/gallery/real-event-01.jpeg",
-    gallery: Array.from({ length: 40 }, (_, i) => `/images/client/gallery/real-event-${String(i + 1).padStart(2, '0')}.jpeg`)
-      .filter(url => !url.includes('real-event-02') && !url.includes('real-event-03') && !url.includes('real-event-06')),
-    location: "Jawaharlal Nehru Indoor Stadium & Prasad Studios, Chennai",
-    scale: "37 Authentic Photos • 25,000 Stadium Audience + Live Broadcast",
-    description: "Massive 3D thematic movie stage designs, custom prop constructions, star-studded red carpet fan arenas, and broadcast lighting created for Thalapathy Vijay blockbusters (Leo, Master), Vikram, and Kaithi.",
-    highlights: ["37 Real Cinema Photos", "Custom 3D Movie Set Architecture", "200m VIP Red Carpet Corridor", "Broadcast-Grade Lighting Rigs"]
+    id: "album-stalin-important-set",
+    title: "CM Stalin Priority Portfolio Showcase",
+    category: "political",
+    categoryLabel: "Stalin Important Set (7 Photos)",
+    image: "/images/client/stalin-important-set/sis-01.jpeg",
+    gallery: Array.from({ length: 7 }, (_, i) => `/images/client/stalin-important-set/sis-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Statewide Arenas & Public Grounds, Tamil Nadu",
+    scale: "7 Full Photos • Priority Showcase",
+    description: "Exclusive state political conventions, dignitary addresses, and VIP stage architecture engineered for CM M.K. Stalin.",
+    highlights: ["7 Priority Stalin Photos", "State Political Staging", "VVIP Speaker Deck", "Turnkey Production"]
+  },
+
+  // 10. New Folder 2 Portfolio Card (4 Photos strictly from New folder (2)/)
+  {
+    id: "album-new-folder-2",
+    title: "Special Event Highlights",
+    category: "corporate",
+    categoryLabel: "New Folder 2 (4 Photos)",
+    image: "/images/client/new-folder-2/nf2-01.jpeg",
+    gallery: Array.from({ length: 4 }, (_, i) => `/images/client/new-folder-2/nf2-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Statewide Venues, Tamil Nadu",
+    scale: "4 Full Photos • Dedicated Showcase",
+    description: "Dedicated project portfolio card showcasing event stage decorations and structural setups from New Folder 2.",
+    highlights: ["4 Dedicated Photos", "Event Stage Architecture", "Custom Lighting Rigs", "Turnkey Execution"]
+  },
+
+  // 11. New Folder 3 Portfolio Card (3 Photos strictly from New folder (3)/)
+  {
+    id: "album-new-folder-3",
+    title: "Stage & Exhibition Sets",
+    category: "corporate",
+    categoryLabel: "New Folder 3 (3 Photos)",
+    image: "/images/client/new-folder-3/nf3-01.jpeg",
+    gallery: Array.from({ length: 3 }, (_, i) => `/images/client/new-folder-3/nf3-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Statewide Arenas, Tamil Nadu",
+    scale: "3 Full Photos • Exhibition & Stage Setups",
+    description: "Dedicated project portfolio card showcasing high-impact stage installations and exhibition sets from New Folder 3.",
+    highlights: ["3 Authentic Photos", "Exhibition Staging", "Dignitary Lounge Decor", "27+ Yrs Mastery"]
   }
 ];
 

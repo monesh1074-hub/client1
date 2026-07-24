@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { PORTFOLIO_GALLERY } from '@/lib/data';
+import { PORTFOLIO_GALLERY, PortfolioItem } from '@/lib/data';
 import { X, Maximize2, ChevronLeft, ChevronRight, Layers } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function PortfolioGallery() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
   const [galleryImageIndex, setGalleryImageIndex] = useState<number>(0);
   const [visibleCount, setVisibleCount] = useState<number>(12);
   const { t } = useLanguage();
@@ -28,7 +28,6 @@ export default function PortfolioGallery() {
     : PORTFOLIO_GALLERY.filter(item => item.category === activeCategory);
 
   const displayedItems = filteredItems.slice(0, visibleCount);
-  const selectedItem = selectedIndex !== null ? filteredItems[selectedIndex] : null;
 
   // Active gallery photos for the selected item
   const currentGalleryPhotos = React.useMemo<string[]>(() => {
@@ -61,7 +60,7 @@ export default function PortfolioGallery() {
   // Keyboard Arrow navigation for Lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedIndex === null || currentGalleryPhotos.length === 0) return;
+      if (!selectedItem || currentGalleryPhotos.length === 0) return;
       if (e.key === 'ArrowLeft') {
         setGalleryImageIndex(prev => (prev === 0 ? currentGalleryPhotos.length - 1 : prev - 1));
       }
@@ -69,15 +68,15 @@ export default function PortfolioGallery() {
         setGalleryImageIndex(prev => (prev === currentGalleryPhotos.length - 1 ? 0 : prev + 1));
       }
       if (e.key === 'Escape') {
-        setSelectedIndex(null);
+        setSelectedItem(null);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedIndex, currentGalleryPhotos]);
+  }, [selectedItem, currentGalleryPhotos]);
 
-  const openModal = (idx: number) => {
-    setSelectedIndex(idx);
+  const openModal = (item: PortfolioItem) => {
+    setSelectedItem(item);
     setGalleryImageIndex(0);
   };
 
@@ -125,7 +124,7 @@ export default function PortfolioGallery() {
             return (
               <div
                 key={item.id}
-                onClick={() => openModal(idx)}
+                onClick={() => openModal(item)}
                 className="group relative bg-obsidian-850 rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 {/* Image Container */}
@@ -190,7 +189,7 @@ export default function PortfolioGallery() {
       </div>
 
       {/* Lightbox Modal with Full Photo Album Slider & Ambient Backdrop */}
-      {selectedItem && selectedIndex !== null && (
+      {selectedItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-obsidian-950/95 backdrop-blur-xl animate-in fade-in duration-200">
           <div className="relative bg-obsidian-900 border border-gold-500/40 rounded-3xl max-w-6xl w-full overflow-hidden shadow-2xl max-h-[96vh] flex flex-col">
             
@@ -209,7 +208,7 @@ export default function PortfolioGallery() {
                 <h3 className="font-serif text-lg sm:text-2xl font-bold text-white">{selectedItem.title}</h3>
               </div>
               <button
-                onClick={() => setSelectedIndex(null)}
+                onClick={() => setSelectedItem(null)}
                 className="p-2.5 rounded-full text-slate-400 hover:text-white bg-obsidian-850 border border-slate-800 hover:border-gold-400 transition-all"
                 title="Close Lightbox (Esc)"
               >
@@ -322,7 +321,7 @@ export default function PortfolioGallery() {
               <span className="text-xs text-slate-300 font-medium">Want to discuss this stage design or enquire about event decor?</span>
               <a
                 href="#booking"
-                onClick={() => setSelectedIndex(null)}
+                onClick={() => setSelectedItem(null)}
                 className="w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-bold text-obsidian-950 bg-gold-gradient uppercase tracking-wider text-center shadow-lg hover:scale-105 transition-transform"
               >
                 Enquire This Specific Setup
