@@ -11,7 +11,12 @@ const subfolders = [
   { folder: 'christmas', prefix: 'christmas-set' },
   { folder: 'pongal', prefix: 'pongal-set' },
   { folder: 'behind-scenes', prefix: 'behind-work' },
-  { folder: 'gallery', prefix: 'real-event' }
+  { folder: 'gallery', prefix: 'real-event' },
+  { folder: 'stalin-important-set', prefix: 'sis' },
+  { folder: 'new-folder-2', prefix: 'nf2' },
+  { folder: 'new-folder-3', prefix: 'nf3' },
+  { folder: 'folder-1', prefix: 'f1' },
+  { folder: 'folder-3', prefix: 'f3' }
 ];
 
 subfolders.forEach(({ folder, prefix }) => {

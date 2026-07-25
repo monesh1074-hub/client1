@@ -504,6 +504,34 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
     scale: "3 Full Photos • Exhibition & Stage Setups",
     description: "Dedicated project portfolio card showcasing high-impact stage installations and exhibition sets from New Folder 3.",
     highlights: ["3 Authentic Photos", "Exhibition Staging", "Dignitary Lounge Decor", "27+ Yrs Mastery"]
+  },
+
+  // 12. Folder 1 Portfolio Card (4 Photos strictly from Folder 1)
+  {
+    id: "album-folder-1",
+    title: "Special Event Stage & Decor (Folder 1)",
+    category: "political",
+    categoryLabel: "Folder 1 Sets (4 Photos)",
+    image: "/images/client/folder-1/f1-01.jpeg",
+    gallery: Array.from({ length: 4 }, (_, i) => `/images/client/folder-1/f1-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Statewide Venues, Tamil Nadu",
+    scale: "4 Full Photos • Dedicated Showcase",
+    description: "Exclusive portfolio card showcasing grand stage decor and event installations strictly using images from Folder 1.",
+    highlights: ["4 Folder 1 Photos", "Event Stage Architecture", "Custom Lighting Rigs", "Turnkey Execution"]
+  },
+
+  // 13. Folder 3 Portfolio Card (5 Photos strictly from Folder 3)
+  {
+    id: "album-folder-3",
+    title: "Grand Stage & Exhibition Sets (Folder 3)",
+    category: "political",
+    categoryLabel: "Folder 3 Sets (5 Photos)",
+    image: "/images/client/folder-3/f3-01.jpeg",
+    gallery: Array.from({ length: 5 }, (_, i) => `/images/client/folder-3/f3-${String(i + 1).padStart(2, '0')}.jpeg`),
+    location: "Statewide Arenas, Tamil Nadu",
+    scale: "5 Full Photos • Dedicated Showcase",
+    description: "Exclusive portfolio card showcasing high-impact stage installations and event setups strictly using images from Folder 3.",
+    highlights: ["5 Folder 3 Photos", "Exhibition Staging", "Dignitary Lounge Decor", "27+ Yrs Mastery"]
   }
 ];
 

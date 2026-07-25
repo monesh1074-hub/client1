@@ -31,7 +31,12 @@ const categories = [
   { folder: 'temple sets', target: 'temple' },
   { folder: 'cristmas set on dmk', target: 'christmas' },
   { folder: 'pongal set on dmk', target: 'pongal' },
-  { folder: 'beind the work', target: 'behind-scenes' }
+  { folder: 'beind the work', target: 'behind-scenes' },
+  { folder: 'stalin important set for card portfolio', target: 'stalin-important-set' },
+  { folder: 'New folder (2)', target: 'new-folder-2' },
+  { folder: 'New folder (3)', target: 'new-folder-3' },
+  { folder: '1', target: 'folder-1' },
+  { folder: '3', target: 'folder-3' }
 ];
 
 categories.forEach(({ folder, target }) => {
