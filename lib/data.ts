@@ -174,7 +174,7 @@ export const COMPANY_DETAILS: CompanyDetails = {
 export const SERVICES: ServiceItem[] = [
   {
     id: "political-events",
-    title: "Political Events & Public Rallies",
+    title: "Political Events",
     slug: "political-events",
     iconName: "Flag",
     shortDesc: "Mega-scale stage structures, VIP podiums, high-capacity trussing, and bullet-resistant speaker arenas for state & national public meetings.",
@@ -187,7 +187,7 @@ export const SERVICES: ServiceItem[] = [
       "Fast 12-hour turnaround for emergency public rallies"
     ],
     idealFor: "State Rallies, Party Conventions, Public Address Campaigns & Campaign Launches",
-    image: "/images/client/cm-stalin/stalin-set-01.jpeg"
+    image: "/images/client/stalin-important-set/sis-06.jpeg"
 
   },
   {
@@ -471,7 +471,7 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
     title: "CM Stalin Priority Portfolio Showcase",
     category: "political",
     categoryLabel: "Stalin Important Set (7 Photos)",
-    image: "/images/client/stalin-important-set/sis-01.jpeg",
+    image: "/images/client/stalin-important-set/sis-06.jpeg",
     gallery: Array.from({ length: 7 }, (_, i) => `/images/client/stalin-important-set/sis-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "Statewide Arenas & Public Grounds, Tamil Nadu",
     scale: "7 Full Photos • Priority Showcase",
