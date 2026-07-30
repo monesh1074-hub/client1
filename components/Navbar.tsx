@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, MessageSquare, Menu, X, Calendar, ChevronRight, Instagram, Globe } from 'lucide-react';
+import { Phone, MessageSquare, Menu, X, Calendar, ChevronRight, Globe } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/lib/data';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -41,12 +41,13 @@ export default function Navbar() {
               <span className="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
               {t('nav.247booking')}
             </span>
-            <span className="text-slate-400">|</span>
+            <span className="text-slate-500">|</span>
             <span className="text-slate-300">
-              {t('nav.chennaiOffice')}
+              India&apos;s Premier Event &amp; Wedding Management Company
             </span>
           </div>
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-5">
+            {/* Language Switcher */}
             <button
               onClick={toggleLanguage}
               className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-400/40 text-gold-300 hover:bg-gold-500/20 font-bold transition-all"
@@ -55,6 +56,7 @@ export default function Navbar() {
               <Globe className="w-3.5 h-3.5 text-gold-400" />
               <span>{language === 'en' ? 'தமிழ்' : 'English'}</span>
             </button>
+
             <a 
               href={`tel:${COMPANY_DETAILS.contact.primaryPhone.replace(/\s+/g, '')}`} 
               className="flex items-center hover:text-gold-400 transition-colors"
@@ -69,17 +71,7 @@ export default function Navbar() {
               className="flex items-center text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
             >
               <MessageSquare className="w-3.5 h-3.5 mr-1.5" />
-              WhatsApp: +91 99407 68571
-            </a>
-            <a 
-              href={COMPANY_DETAILS.socialLinks.instagram} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center text-pink-400 hover:text-pink-300 transition-colors font-medium"
-              title="Official Instagram Page"
-            >
-              <Instagram className="w-3.5 h-3.5 mr-1.5" />
-              Instagram
+              WhatsApp
             </a>
           </div>
         </div>
@@ -87,7 +79,7 @@ export default function Navbar() {
 
       {/* Main Sticky Navbar */}
       <header 
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-40 transition-all duration-300 ${
           scrolled 
             ? 'bg-obsidian-950/95 backdrop-blur-md border-b border-gold-500/20 py-3 shadow-2xl' 
             : 'bg-obsidian-900/80 backdrop-blur-sm border-b border-white/5 py-4'
@@ -97,10 +89,10 @@ export default function Navbar() {
           
           {/* Logo & Brand Identity */}
           <Link href="#hero" className="flex items-center space-x-3 group shrink-0 mr-3">
-            <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-xl overflow-hidden border-2 border-gold-400/90 shadow-2xl gold-glow group-hover:scale-105 transition-transform bg-obsidian-950 flex items-center justify-center shrink-0">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border-2 border-gold-400/90 shadow-2xl gold-glow group-hover:scale-105 transition-transform bg-obsidian-950 flex items-center justify-center shrink-0">
               <Image
                 src="/logo.jpeg"
-                alt="Kalai Decorators Official Logo"
+                alt="EventPlus Official Logo"
                 width={150}
                 height={150}
                 priority
@@ -108,11 +100,11 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors whitespace-nowrap">
-                KALAI <span className="text-gold-400">DECORATORS</span>
+              <span className="font-serif text-xl sm:text-2xl font-extrabold tracking-tight text-white group-hover:text-gold-400 transition-colors whitespace-nowrap">
+                EVENT<span className="text-gold-400">PLUS</span>
               </span>
               <span className="text-[10px] sm:text-xs text-slate-400 tracking-wider uppercase font-medium whitespace-nowrap">
-                {language === 'ta' ? 'மேடை அலங்கார நிபுணர்கள்' : 'Stage Setup & Event Specialists'}
+                {language === 'ta' ? 'நிகழ்ச்சி & திருமண மேலாண்மை' : 'Event & Wedding Management'}
               </span>
             </div>
           </Link>
@@ -131,15 +123,16 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action Callouts */}
-          <div className="hidden sm:flex items-center space-x-3">
+          <div className="hidden sm:flex items-center space-x-2.5">
             <button
               onClick={toggleLanguage}
-              className="flex items-center space-x-1.5 px-3 py-2 rounded-lg bg-obsidian-850 hover:bg-obsidian-800 border border-gold-500/30 text-gold-400 font-bold text-xs transition-all shadow-md"
+              className="flex items-center space-x-1 px-2.5 py-2 rounded-lg bg-obsidian-850 hover:bg-obsidian-800 border border-gold-500/30 text-gold-400 font-bold text-xs transition-all shadow-sm"
               title="Change Language"
             >
               <Globe className="w-4 h-4 text-gold-400" />
               <span>{language === 'en' ? 'தமிழ்' : 'EN'}</span>
             </button>
+
             <a
               href={`tel:${COMPANY_DETAILS.contact.primaryPhone.replace(/\s+/g, '')}`}
               className="p-2.5 text-slate-300 hover:text-white bg-obsidian-850 hover:bg-obsidian-800 border border-slate-800 rounded-lg transition-colors"
@@ -150,27 +143,29 @@ export default function Navbar() {
 
             <a
               href="#booking"
-              className="relative inline-flex items-center px-5 py-2.5 rounded-lg text-xs sm:text-sm font-semibold text-obsidian-950 bg-gold-gradient hover:opacity-95 transition-all shadow-md gold-glow uppercase tracking-wider"
+              className="relative inline-flex items-center px-4 py-2.5 rounded-lg text-xs font-bold text-obsidian-950 bg-gold-gradient hover:opacity-95 transition-all shadow-md gold-glow uppercase tracking-wider"
             >
-              <Calendar className="w-4 h-4 mr-2 text-obsidian-950" />
-              Enquire Event
+              <Calendar className="w-4 h-4 mr-1.5 text-obsidian-950" />
+              Book Event
             </a>
           </div>
 
           {/* Mobile Hamburger Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2.5 rounded-lg text-slate-300 hover:text-white bg-obsidian-850 border border-slate-800"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-2 xl:hidden">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg text-slate-300 bg-obsidian-850 border border-slate-800"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-obsidian-950 border-b border-gold-500/20 px-4 pt-4 pb-6 space-y-3 animate-in slide-in-from-top duration-200 shadow-2xl">
-            <div className="grid grid-cols-3 gap-2 pb-3 border-b border-slate-800">
+          <div className="xl:hidden bg-obsidian-950 border-b border-gold-500/20 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+            <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-800">
               <button
                 onClick={toggleLanguage}
                 className="flex items-center justify-center px-2 py-2.5 bg-gold-500/10 border border-gold-400/40 rounded-lg text-xs font-bold text-gold-300"
@@ -180,19 +175,10 @@ export default function Navbar() {
               </button>
               <a
                 href={`tel:${COMPANY_DETAILS.contact.primaryPhone.replace(/\s+/g, '')}`}
-                className="flex items-center justify-center px-2 py-2.5 bg-obsidian-850 border border-slate-800 rounded-lg text-xs font-semibold text-white"
+                className="flex items-center justify-center px-2 py-2.5 bg-obsidian-850 border border-slate-800 rounded-lg text-xs font-semibold text-slate-200"
               >
                 <Phone className="w-3.5 h-3.5 text-gold-400 mr-1" />
                 Call
-              </a>
-              <a
-                href={COMPANY_DETAILS.socialLinks.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center px-2 py-2.5 bg-emerald-950/80 border border-emerald-800/50 rounded-lg text-xs font-semibold text-emerald-400"
-              >
-                <MessageSquare className="w-3.5 h-3.5 mr-1" />
-                WhatsApp
               </a>
             </div>
 
@@ -217,7 +203,7 @@ export default function Navbar() {
                 className="w-full flex items-center justify-center py-3 rounded-lg text-sm font-bold text-obsidian-950 bg-gold-gradient uppercase tracking-wider"
               >
                 <Calendar className="w-4 h-4 mr-2" />
-                Book Your Event Stage Now
+                Book Your Event Now
               </a>
             </div>
           </div>
