@@ -39,19 +39,29 @@ export default function FeaturedProjects() {
                   
                   {/* Case Study Image */}
                   <div className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="relative h-[320px] sm:h-[420px] w-full overflow-hidden group">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={800}
-                        height={600}
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        priority={index < 2}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent" />
+                    <div className="relative h-[320px] sm:h-[420px] w-full overflow-hidden group rounded-2xl">
+                      {project.video ? (
+                        <video
+                          controls
+                          preload="metadata"
+                          poster={project.image}
+                          src={project.video}
+                          className="w-full h-full object-contain bg-obsidian-950 rounded-2xl"
+                        />
+                      ) : (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={800}
+                          height={600}
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          priority={index < 2}
+                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent pointer-events-none" />
                       
-                      <div className="absolute top-4 left-4 bg-gold-gradient px-3 py-1 rounded-full text-xs font-bold text-obsidian-950 uppercase tracking-wider shadow-lg">
+                      <div className="absolute top-4 left-4 bg-gold-gradient px-3 py-1 rounded-full text-xs font-bold text-obsidian-950 uppercase tracking-wider shadow-lg z-10">
                         {project.categoryLabel}
                       </div>
                     </div>

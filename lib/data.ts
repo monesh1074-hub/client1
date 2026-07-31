@@ -4,6 +4,7 @@ export interface PortfolioItem {
   category: 'political' | 'movies' | 'weddings' | 'government' | 'temple' | 'corporate';
   categoryLabel: string;
   image: string;
+  video?: string;
   gallery?: string[];
   location: string;
   scale: string;
@@ -111,7 +112,7 @@ export const COMPANY_DETAILS: CompanyDetails = {
     bio: "Under the visionary leadership of Founder Perumal, Kalai Decorators has spent over 27 years transforming stadiums, public grounds, and venues across South India into majestic, high-capacity event arenas. Specializing in engineered political mega-rally stages and Kollywood blockbuster cinema set productions.",
     specialties: [
       "Engineered Steel Trussing & Heavy Load Stage Decks",
-      "VVIP Bulletproof Speaker Podiums & Political Rally Arenas",
+      "VVIP Speaker Podiums & DMK Party Meeting Arenas",
       "Blockbuster Film Set Production & Audio Launch Arenas (Vikram, Master, Leo, Kaithi)",
       "Royal Wedding Mandapams with Imported Exotic Florals"
     ],
@@ -167,7 +168,7 @@ export const COMPANY_DETAILS: CompanyDetails = {
   socialLinks: {
     whatsapp: "https://wa.me/919940768571?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20event%20stage%20decoration%20services.",
     whatsappAlt: "https://wa.me/919994849904?text=Hello%20Kalai%20Decorators,%20I%20would%20like%20to%20enquire%20about%20stage%20setup.",
-    instagram: "https://www.instagram.com/kalai_decorators?igsh=dngycTltOHp4cXZz"
+    instagram: "https://www.instagram.com/kalai_decorator_?igsh=MWozbnptemtmNXFucg%3D%3D"
   }
 };
 
@@ -177,11 +178,11 @@ export const SERVICES: ServiceItem[] = [
     title: "Political Events",
     slug: "political-events",
     iconName: "Flag",
-    shortDesc: "Mega-scale stage structures, VIP podiums, high-capacity trussing, and bullet-resistant speaker arenas for state & national public meetings.",
+    shortDesc: "Mega-scale stage structures, VIP podiums, high-capacity trussing, and DMK party meeting arenas for state & national public meetings.",
     fullDesc: "We specialize in engineered high-capacity stages built for major political rallies, party conventions, and public addresses across Tamil Nadu and South India. Our engineering complies strictly with security protocols, heavy load capacities, and instant emergency dispersal requirements.",
     features: [
       "Heavy-duty multi-level stage platforms (up to 200 ft span)",
-      "VIP & VVIP podium security barricading & bulletproof enclosures",
+      "VIP & VVIP podium security barricading & dignitary seating enclosures",
       "High-output LED wall backdrop mounting & sound tower setups",
       "Weather-resistant weatherproof canopying & ground carpeting",
       "Fast 12-hour turnaround for emergency public rallies"
@@ -279,6 +280,30 @@ export const SERVICES: ServiceItem[] = [
 
 export const FEATURED_PROJECTS: PortfolioItem[] = [
   {
+    id: "stalin-master-appreciation-video",
+    title: "Hon'ble CM M.K. Stalin Appreciation & Master Movie Set Production",
+    category: "movies",
+    categoryLabel: "CM Stalin Commendation & Cinema Master Set",
+    image: "/images/master-set-vijay-perumal-thumbnail.jpg",
+    video: "/videos/founder-stalin-appreciation.mp4",
+    gallery: [
+      "/images/client/founder-appreciation/appreciation-01.jpeg",
+      "/images/client/founder-appreciation/appreciation-02.jpeg",
+      "/images/client/founder-appreciation/appreciation-03.jpeg",
+      "/images/client/founder-appreciation/appreciation-04.jpeg"
+    ],
+    location: "State Conventions & Jawaharlal Nehru Stadium, Chennai, TN",
+    scale: "Official Appreciation Video + 4 Photo Album • Master Set",
+    description: "Official recognition and video commendation received by Founder Perumal from Hon'ble Chief Minister M.K. Stalin for master stage decor engineering, political mega rally productions, and blockbuster cinema audio launches including Thalapathy Vijay's Master movie.",
+    highlights: [
+      "CM M.K. Stalin Direct Work Appreciation Video",
+      "Thalapathy Vijay Master Cinema Set Execution",
+      "Heavy Steel Trussing & Arena Rigging",
+      "Official State Commendation & Recognition"
+    ],
+    featured: true
+  },
+  {
     id: "cm-stalin-heritage-exhibition",
     title: "CM M.K. Stalin State Heritage & Cultural Exhibition",
     category: "political",
@@ -353,6 +378,26 @@ export const FEATURED_PROJECTS: PortfolioItem[] = [
 ];
 
 export const PORTFOLIO_GALLERY: PortfolioItem[] = [
+  // 0. Founder Stalin Appreciation & Master Movie Set Video Album
+  {
+    id: "album-founder-stalin-appreciation",
+    title: "Hon'ble CM M.K. Stalin Work Appreciation & Master Movie Set Video",
+    category: "movies",
+    categoryLabel: "CM Stalin Appreciation & Master Movie Video",
+    image: "/images/client/founder-appreciation/appreciation-01.jpeg",
+    video: "/videos/founder-stalin-appreciation.mp4",
+    gallery: [
+      "/images/client/founder-appreciation/appreciation-01.jpeg",
+      "/images/client/founder-appreciation/appreciation-02.jpeg",
+      "/images/client/founder-appreciation/appreciation-03.jpeg",
+      "/images/client/founder-appreciation/appreciation-04.jpeg"
+    ],
+    location: "Chennai Arenas & Statewide Conventions, Tamil Nadu",
+    scale: "Official Video & 4 Photo Commendation Album",
+    description: "Official appreciation video and event photos of Founder Perumal work recognized by Hon'ble Chief Minister M.K. Stalin for master stage design and blockbuster film set productions like Master & Vikram.",
+    highlights: ["CM M.K. Stalin Direct Appreciation", "Thalapathy Vijay Master Movie Production", "Full Video Commendation", "4 Event Photos"]
+  },
+
   // 1. CM M.K. Stalin Political Mega Convention Sets Album (11 Photos from cm stalin sets/)
   {
     id: "album-cm-stalin",
@@ -363,8 +408,8 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
     gallery: Array.from({ length: 11 }, (_, i) => `/images/client/cm-stalin/stalin-set-${String(i + 1).padStart(2, '0')}.jpeg`),
     location: "YMCA Grounds, Island Grounds & Statewide Arenas, Tamil Nadu",
     scale: "11 Full Photos • 500,000+ Crowd Capacity Arena",
-    description: "Authentic mega political rally stage setups, VVIP speaker podiums, bulletproof glass enclosures, and heavy steel trussing engineered for CM M.K. Stalin addresses.",
-    highlights: ["11 Real Event Photos", "VVIP Bulletproof Speaker Podium", "500,000+ Audience Deck", "180ft Steel Trussing Hangar"]
+    description: "Authentic mega political rally stage setups, VVIP speaker podiums, DMK party dignitaries meeting seating, and heavy steel trussing engineered for CM M.K. Stalin addresses.",
+    highlights: ["11 Real Event Photos", "VVIP Speaker Podium & DMK Stage", "500,000+ Audience Deck", "180ft Steel Trussing Hangar"]
   },
 
   // 2. DMK State Level Manadu Mega Rally Arena Album (10 Photos from DMK MANADU/)

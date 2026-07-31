@@ -1,14 +1,34 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Phone, MessageSquare, Quote, Award } from 'lucide-react';
+import { Phone, MessageSquare, Quote, Award, Video, Play, Eye } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/lib/data';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function FounderSection() {
   const { t } = useLanguage();
+  const [activeMedia, setActiveMedia] = useState<'video' | number>('video');
+
+  const appreciationPhotos = [
+    {
+      src: '/images/client/founder-appreciation/appreciation-01.jpeg',
+      caption: 'CM M.K. Stalin Stage Honor'
+    },
+    {
+      src: '/images/client/founder-appreciation/appreciation-02.jpeg',
+      caption: 'Founder Perumal Commendation by M.K. Stalin for Decoration'
+    },
+    {
+      src: '/images/client/founder-appreciation/appreciation-03.jpeg',
+      caption: 'CM M.K. Stalin Stage Honor'
+    },
+    {
+      src: '/images/client/founder-appreciation/appreciation-04.jpeg',
+      caption: 'CM M.K. Stalin Stage Honor'
+    }
+  ];
 
   return (
     <section id="founder" className="bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-100 border-y border-gold-500/20 py-20 lg:py-28 relative overflow-hidden transition-colors duration-300">
@@ -18,7 +38,7 @@ export default function FounderSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -29,7 +49,7 @@ export default function FounderSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             {/* Left Image & Profile Badge */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -77,7 +97,7 @@ export default function FounderSection() {
                 </p>
               </div>
 
-              <motion.div 
+              <motion.div
                 whileHover={{ x: 5 }}
                 className="relative pl-6 border-l-2 border-gold-400 space-y-3"
               >
@@ -94,7 +114,7 @@ export default function FounderSection() {
 
               {/* Key Highlights Card */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.03 }}
                   className="bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-100 border border-gold-500/30 p-3.5 rounded-xl"
                 >
@@ -103,7 +123,7 @@ export default function FounderSection() {
                   <div className="text-xs dark:text-slate-400 light:text-slate-600">{t('nav.chennaiOffice')}</div>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.03 }}
                   className="bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-100 border border-gold-500/30 p-3.5 rounded-xl"
                 >
@@ -140,6 +160,154 @@ export default function FounderSection() {
 
             </div>
 
+          </div>
+
+          {/* CM M.K. Stalin Appreciation Video & Cinema Set Showcase */}
+          <div className="mt-12 pt-12 border-t border-gold-500/20">
+            <div className="text-center max-w-3xl mx-auto mb-8 space-y-2">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                <Award className="w-3.5 h-3.5" />
+                <span>State Dignitary Commendation</span>
+              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold dark:text-white light:text-slate-900">
+                Hon'ble CM M.K. Stalin Appreciation &amp; Master Movie Set Video
+              </h3>
+              <p className="text-xs sm:text-sm dark:text-slate-300 light:text-slate-600">
+                Click any photo on the right to display it on the big screen below, or play the official appreciation video.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* BIG SCREEN MEDIA VIEWER (Left Column) */}
+              <div className="lg:col-span-7">
+                <div className="relative rounded-2xl overflow-hidden border-2 border-gold-400/50 shadow-2xl bg-obsidian-950 group">
+                  {activeMedia === 'video' ? (
+                    <video
+                      controls
+                      autoPlay={false}
+                      preload="metadata"
+                      poster="/images/master-set-vijay-perumal-thumbnail.jpg"
+                      src="/videos/founder-stalin-appreciation.mp4"
+                      className="w-full h-[360px] sm:h-[420px] rounded-2xl object-cover"
+                    >
+                      Your browser does not support playing video.
+                    </video>
+                  ) : (
+                    <div className="relative w-full h-[360px] sm:h-[420px] rounded-2xl overflow-hidden bg-obsidian-950 flex items-center justify-center">
+                      <Image
+                        src={appreciationPhotos[activeMedia].src}
+                        alt={appreciationPhotos[activeMedia].caption}
+                        fill
+                        priority
+                        className="object-contain p-2"
+                      />
+                    </div>
+                  )}
+
+                  {/* Caption & Controls Bar */}
+                  <div className="p-3 bg-obsidian-950 border-t border-gold-400/20 flex items-center justify-between text-xs text-slate-300">
+                    <span className="font-semibold text-gold-400 flex items-center gap-1.5 truncate max-w-[65%]">
+                      {activeMedia === 'video' ? (
+                        <>
+                          <Award className="w-4 h-4 shrink-0 text-gold-400" />
+                          <span className="truncate">CM M.K. Stalin Commendation Video</span>
+                        </>
+                      ) : (
+                        <>
+                          <Eye className="w-4 h-4 shrink-0 text-gold-400" />
+                          <span className="truncate">{appreciationPhotos[activeMedia].caption}</span>
+                        </>
+                      )}
+                    </span>
+
+                    {activeMedia !== 'video' ? (
+                      <button
+                        onClick={() => setActiveMedia('video')}
+                        className="px-3 py-1.5 rounded-lg bg-gold-400 text-obsidian-950 text-[11px] font-bold flex items-center gap-1 hover:bg-gold-300 transition-all shadow-md shrink-0"
+                      >
+                        <Play className="w-3.5 h-3.5 fill-current" />
+                        <span>Play Video</span>
+                      </button>
+                    ) : (
+                      <span className="text-[11px] text-slate-400 hidden sm:inline">
+                        Master &amp; Vikram Set Mastery
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* 4 Appreciation Photo Thumbnails + Video Switcher (Right Column) */}
+              <div className="lg:col-span-5 space-y-3">
+                {/* Video Switcher Button */}
+                <button
+                  onClick={() => setActiveMedia('video')}
+                  className={`w-full p-3 rounded-xl border flex items-center justify-between transition-all ${
+                    activeMedia === 'video'
+                      ? 'bg-gold-400/20 border-gold-400 text-gold-400 font-bold shadow-lg ring-1 ring-gold-400/50'
+                      : 'bg-obsidian-900 border-slate-800 text-slate-300 hover:border-gold-400/40'
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 rounded-lg bg-gold-400/20 text-gold-400">
+                      <Video className="w-4 h-4" />
+                    </div>
+                    <div className="text-left text-xs">
+                      <div className="font-bold text-slate-100">CM M.K. Stalin Commendation Video</div>
+                      <div className="text-[11px] text-slate-400">Click to play video on big screen</div>
+                    </div>
+                  </div>
+                  {activeMedia === 'video' && (
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-gold-400/30 text-gold-300 uppercase font-bold">Active</span>
+                  )}
+                </button>
+
+                {/* 4 Photo Thumbnails Grid */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {appreciationPhotos.map((item, idx) => {
+                    const isSelected = activeMedia === idx;
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveMedia(idx)}
+                        className={`group relative rounded-xl overflow-hidden border text-left transition-all duration-300 ${
+                          isSelected
+                            ? 'border-2 border-gold-400 ring-2 ring-gold-400/40 shadow-xl scale-[1.02]'
+                            : 'border-gold-400/30 bg-obsidian-900 opacity-80 hover:opacity-100 hover:border-gold-400/60'
+                        }`}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.caption}
+                          width={300}
+                          height={200}
+                          className="w-full h-28 object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent opacity-85" />
+                        
+                        <div 
+                          title={item.caption}
+                          className={`absolute bottom-2 left-2 right-2 text-[10px] font-bold truncate px-2 py-1 rounded border ${
+                            isSelected
+                              ? 'bg-gold-400 text-obsidian-950 border-gold-300 shadow-md'
+                              : 'bg-obsidian-950/90 text-gold-400 border-gold-400/20'
+                          }`}
+                        >
+                          {item.caption}
+                        </div>
+
+                        {isSelected && (
+                          <div className="absolute top-2 right-2 p-1 rounded-full bg-gold-400 text-obsidian-950 shadow-md">
+                            <Eye className="w-3 h-3" />
+                          </div>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+            </div>
           </div>
 
         </motion.div>

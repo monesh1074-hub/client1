@@ -57,15 +57,15 @@ export default function EventChatbot() {
     id: '1',
     sender: 'bot',
     text: language === 'ta' 
-      ? 'வணக்கம்! நான் EventPlus AI உதவியாளர். உங்கள் திருமணம் அல்லது கார்ப்பரேட் நிகழ்ச்சியை திட்டமிட நான் எவ்வாறு உதவ முடியும்?'
-      : 'Hello! I am your **EventPlus AI Event Concierge**. How can I help you plan your dream event or wedding today?',
+      ? 'வணக்கம்! நான் Kalai Decorators AI உதவியாளர். உரிமையாளரிடம் பேச அல்லது உங்கள் நிகழ்ச்சியை திட்டமிட நான் எவ்வாறு உதவ முடியும்?'
+      : 'Hello! I am your **Kalai Decorators AI Event Concierge**. How can I help you plan your dream event or talk to our owner today?',
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     options: [
+      { label: '📞 Talk to Owner (6381147719)', action: 'show_owner', icon: 'Phone' },
       { label: '💰 Estimate Event Cost', action: 'show_calculator', icon: 'Calculator' },
       { label: '💍 Wedding Planning', action: 'ask_wedding', icon: 'Sparkles' },
-      { label: '🏢 Corporate Events', action: 'ask_corporate', icon: 'Award' },
+      { label: '🏢 Corporate & Rallies', action: 'ask_corporate', icon: 'Award' },
       { label: '📅 Check Date Availability', action: 'show_datecheck', icon: 'Calendar' },
-      { label: '📞 Talk to Event Specialist', action: 'show_leadform', icon: 'Phone' },
     ]
   };
 
@@ -130,7 +130,20 @@ export default function EventChatbot() {
   const handleOptionClick = (option: { label: string; action: string }) => {
     handleSendMessage(option.label);
 
-    if (option.action === 'show_calculator') {
+    if (option.action === 'show_owner') {
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: Date.now().toString(),
+            sender: 'bot',
+            text: '📞 **Talk Directly to Owner (Perumal)**:\n\nYou can call our Founder & Master Decorator directly at **6381147719** (+91 63811 47719) for immediate assistance or leave your details below for a quick callback:',
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            isWidget: 'leadForm'
+          }
+        ]);
+      }, 850);
+    } else if (option.action === 'show_calculator') {
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
@@ -163,7 +176,7 @@ export default function EventChatbot() {
           {
             id: Date.now().toString(),
             sender: 'bot',
-            text: 'Leave your contact details and our Master Event Director will call you within 15 minutes for a free consultation:',
+            text: 'Leave your contact details and our Owner / Lead Specialist will call you shortly at **6381147719** for a free consultation:',
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             isWidget: 'leadForm'
           }
@@ -177,42 +190,59 @@ export default function EventChatbot() {
     let replyText = '';
     let options: { label: string; action: string }[] | undefined = undefined;
 
-    if (lower.includes('cost') || lower.includes('price') || lower.includes('budget') || lower.includes('package') || lower.includes('estimate')) {
-      replyText = "We offer flexible event packages starting from budget-friendly options to ultra-luxury VIP productions. Would you like to run our instant live cost calculator?";
+    if (
+      lower.includes('owner') ||
+      lower.includes('founder') ||
+      lower.includes('perumal') ||
+      lower.includes('talk') ||
+      lower.includes('speak') ||
+      lower.includes('boss') ||
+      lower.includes('director') ||
+      lower.includes('head') ||
+      lower.includes('manager')
+    ) {
+      replyText = `📞 **Talk Directly to Owner (Perumal)**:\n\nTo speak directly with the owner of Kalai Decorators, please call **6381147719** (+91 63811 47719).\n\nHe is available for direct inquiries regarding mega political rallies, blockbuster movie audio launches, and royal wedding setups.`;
+      options = [
+        { label: '📞 Call Owner: 6381147719', action: 'show_leadform' },
+        { label: '💬 Chat on WhatsApp', action: 'whatsapp_redirect' }
+      ];
+    } else if (lower.includes('cost') || lower.includes('price') || lower.includes('budget') || lower.includes('package') || lower.includes('estimate')) {
+      replyText = "We offer flexible event packages starting from budget-friendly options to ultra-luxury VIP productions. Would you like to run our instant live cost calculator or speak to the owner?";
       options = [
         { label: '🧮 Launch Cost Calculator', action: 'show_calculator' },
-        { label: '📞 Request Custom Quote', action: 'show_leadform' }
+        { label: '📞 Talk to Owner (6381147719)', action: 'show_owner' }
       ];
     } else if (lower.includes('wedding') || lower.includes('mandap') || lower.includes('reception') || lower.includes('marriage') || lower.includes('sangeet')) {
-      replyText = "✨ **EventPlus Royal Weddings**: We create breathtaking luxury wedding decor, traditional mandapams, Sangeet stages, imported floral setups, and end-to-end destination wedding management across India (Goa, Jaipur, Kerala, Chennai, etc.).";
+      replyText = "✨ **Kalai Decorators Royal Weddings**: We create breathtaking luxury wedding decor, traditional mandapams, Sangeet stages, imported floral setups, and end-to-end wedding management.\n\nTo consult with our owner directly, call **6381147719**.";
       options = [
         { label: '💰 Estimate Wedding Cost', action: 'show_calculator' },
         { label: '📅 Check Booking Dates', action: 'show_datecheck' },
-        { label: '📞 Speak with Wedding Specialist', action: 'show_leadform' }
+        { label: '📞 Talk to Owner (6381147719)', action: 'show_owner' }
       ];
-    } else if (lower.includes('corporate') || lower.includes('conference') || lower.includes('launch') || lower.includes('award') || lower.includes('brand')) {
-      replyText = "🏢 **Corporate Event Excellence**: EventPlus manages high-profile corporate conferences, product launches, brand activations, sound & LED trussing, and gala awards with 100% precision execution.";
+    } else if (lower.includes('corporate') || lower.includes('conference') || lower.includes('launch') || lower.includes('award') || lower.includes('brand') || lower.includes('rally')) {
+      replyText = "🏢 **Mega Event & Political Rally Stage Production**: Kalai Decorators manages high-capacity political rallies, cinema set productions (Vikram, Master, Leo), and corporate conventions with 100% safety and steel trussing engineering.\n\nOwner Direct Contact: **6381147719**.";
       options = [
-        { label: '🏢 View Corporate Services', action: 'ask_corporate' },
-        { label: '📞 Get Corporate Proposal', action: 'show_leadform' }
+        { label: '📞 Talk to Owner (6381147719)', action: 'show_owner' },
+        { label: '📅 Check Date Schedule', action: 'show_datecheck' }
       ];
     } else if (lower.includes('location') || lower.includes('city') || lower.includes('where') || lower.includes('address') || lower.includes('chennai')) {
-      replyText = `📍 **EventPlus Coverage**: Headquarters in Chennai (Alapakkam Main Rd) with full operational execution across South India & PAN India (Chennai, Bengaluru, Mumbai, Hyderabad, Goa, Coimbatore, Madurai).`;
+      replyText = `📍 **Kalai Decorators HQ**: No. 4/450, Alapakkam Main Road, Alapakkam, Chennai - 600116.\n\nOperational execution across Tamil Nadu & South India.\n\nCall Owner: **6381147719**`;
       options = [
-        { label: '📅 Check Location Availability', action: 'show_datecheck' },
-        { label: '📞 Call Headquarters', action: 'show_leadform' }
+        { label: '📞 Call Owner: 6381147719', action: 'show_owner' },
+        { label: '📅 Check Location Availability', action: 'show_datecheck' }
       ];
     } else if (lower.includes('contact') || lower.includes('phone') || lower.includes('number') || lower.includes('call') || lower.includes('email')) {
-      replyText = `📞 You can reach our team directly at **${COMPANY_DETAILS.contact.primaryPhone}** or WhatsApp us anytime. Alternatively, submit your callback request right here!`;
+      replyText = `📞 **Direct Contact Information**:\n\n• **Owner Direct Line**: **6381147719** (+91 63811 47719)\n• **Alternate Phone**: +91 99948 49904\n• **Email**: ${COMPANY_DETAILS.contact.primaryEmail}\n\nYou can reach our owner directly at **6381147719**!`;
       options = [
-        { label: '📝 Request Immediate Callback', action: 'show_leadform' }
+        { label: '📞 Talk to Owner (6381147719)', action: 'show_owner' },
+        { label: '💬 Chat on WhatsApp', action: 'whatsapp_redirect' }
       ];
     } else {
-      replyText = `Thank you for reaching out to **EventPlus**! We specialize in End-to-End Event Management, Luxury Wedding Planning, Heavy Stage Trussing, Live Concerts, and Corporate Events. How can I assist you further?`;
+      replyText = `Thank you for reaching out to **Kalai Decorators**! We specialize in Mega Political Rallies, Cinema Audio Launches, and Royal Weddings.\n\nIf you want to talk directly to the owner, call **6381147719** (+91 63811 47719).`;
       options = [
+        { label: '📞 Talk to Owner (6381147719)', action: 'show_owner' },
         { label: '💰 Estimate Event Budget', action: 'show_calculator' },
-        { label: '📅 Check Date Schedule', action: 'show_datecheck' },
-        { label: '📞 Contact Planner', action: 'show_leadform' }
+        { label: '📅 Check Date Schedule', action: 'show_datecheck' }
       ];
     }
 
@@ -255,7 +285,7 @@ export default function EventChatbot() {
       const confirmMsg: ChatMessage = {
         id: Date.now().toString(),
         sender: 'bot',
-        text: `🎉 **Thank you, ${leadForm.name}!** Your inquiry for **${costState.eventType}** in ${leadForm.city} has been received. Our senior event consultant will contact you shortly at **${leadForm.phone}**.`,
+        text: `🎉 **Thank you, ${leadForm.name}!** Your inquiry for **${costState.eventType}** in ${leadForm.city} has been received. Our Owner will contact you shortly at **${leadForm.phone}**.\n\nYou can also reach the Owner directly at **6381147719**.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
         options: [
           { label: '💬 Chat on WhatsApp Now', action: 'whatsapp_redirect' }
@@ -266,7 +296,7 @@ export default function EventChatbot() {
   };
 
   const handleWhatsAppRedirect = () => {
-    const text = encodeURIComponent(`Hi EventPlus, I would like to inquire about event management for ${leadForm.name || 'my event'}. Phone: ${leadForm.phone}`);
+    const text = encodeURIComponent(`Hi Kalai Decorators, I would like to inquire about event management for ${leadForm.name || 'my event'}. Phone: ${leadForm.phone || '6381147719'}`);
     window.open(`https://wa.me/${COMPANY_DETAILS.contact.whatsappNumber}?text=${text}`, '_blank');
   };
 
@@ -321,7 +351,7 @@ export default function EventChatbot() {
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h3 className="font-bold text-sm text-slate-100">EventPlus AI Concierge</h3>
+                  <h3 className="font-bold text-sm text-slate-100">Kalai Decorators AI Concierge</h3>
                   <span className="px-1.5 py-0.5 rounded text-[10px] bg-gold-400/20 text-gold-400 font-semibold uppercase tracking-wider">Online</span>
                 </div>
                 <p className="text-[11px] text-slate-400">24/7 Smart Event &amp; Wedding Planner</p>
@@ -598,7 +628,7 @@ export default function EventChatbot() {
             >
               <input
                 type="text"
-                placeholder="Ask EventPlus AI (e.g., Wedding cost, dates)..."
+                placeholder="Ask Kalai Decorators AI (e.g., Talk to owner, cost)..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 className="flex-1 bg-obsidian-900 text-slate-100 placeholder-slate-500 text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-800 focus:border-gold-400 outline-none transition-all"
@@ -615,7 +645,7 @@ export default function EventChatbot() {
               <span className="flex items-center gap-1">
                 <ShieldCheck className="w-3 h-3 text-gold-400" /> 100% Confidential
               </span>
-              <span>EventPlus India official Assistant</span>
+              <span>Kalai Decorators official Assistant</span>
             </div>
           </div>
         </div>

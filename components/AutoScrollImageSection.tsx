@@ -31,8 +31,8 @@ const SHOWCASE_IMAGES_ROW1: ShowcaseImage[] = [
   },
   {
     id: 'sc-3',
-    src: '/images/client/gallery/real-event-01.jpeg',
-    title: 'Vikram & Master Cinema Set Audio Launch Arena',
+    src: '/images/master-set-vijay-perumal-thumbnail.jpg',
+    title: 'Master Cinema Set',
     category: 'Movie Set',
     location: 'Jawaharlal Nehru Stadium, Chennai'
   },
@@ -69,7 +69,7 @@ const SHOWCASE_IMAGES_ROW2: ShowcaseImage[] = [
   },
   {
     id: 'sc-8',
-    src: '/images/client/dmk-manadu/manadu-set-01.jpeg',
+    src: '/images/client/dmk-manadu/dmk-manadu-01.jpeg',
     title: '500,000 Audience Capacity Political Rally Ground',
     category: 'Political Mega Rally',
     location: 'Tirunelveli, TN'
@@ -91,14 +91,14 @@ const SHOWCASE_IMAGES_ROW2: ShowcaseImage[] = [
   {
     id: 'sc-11',
     src: '/images/client/important/important-02.jpeg',
-    title: 'VIP Bulletproof Speaker Podium & Arena',
-    category: 'VIP Security Stage',
+    title: 'DMK Party Dignitaries Meeting Arena',
+    category: 'DMK Party Meet',
     location: 'Salem, TN'
   },
   {
     id: 'sc-12',
     src: '/images/client/marriage/wedding-set-02.jpeg',
-    title: 'Jasmine & Exotic Orchid Pathway Floral Tunnel',
+    title: 'Royal Wedding',
     category: 'Royal Wedding',
     location: 'Chennai, TN'
   }
@@ -114,7 +114,7 @@ export default function AutoScrollImageSection() {
 
   return (
     <section className="bg-obsidian-950 py-16 sm:py-24 border-y border-gold-500/30 overflow-hidden relative transition-colors duration-300">
-      
+
       {/* Glow Effects */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-gold-500/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-royal-900/20 rounded-full blur-[140px] pointer-events-none" />
@@ -150,9 +150,9 @@ export default function AutoScrollImageSection() {
                 alt={img.title}
                 fill
                 sizes="(max-width: 640px) 280px, 320px"
-                className="object-cover transition-transform duration-700 hover:scale-110"
+                className="object-cover object-top transition-transform duration-700 hover:scale-110"
               />
-              
+
               <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-90" />
 
               {/* Status Badge */}
@@ -197,9 +197,9 @@ export default function AutoScrollImageSection() {
                 alt={img.title}
                 fill
                 sizes="(max-width: 640px) 280px, 320px"
-                className="object-cover transition-transform duration-700 hover:scale-110"
+                className="object-cover object-top transition-transform duration-700 hover:scale-110"
               />
-              
+
               <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent opacity-90" />
 
               {/* Status Badge */}

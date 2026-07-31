@@ -32,6 +32,25 @@ const categories = [
   { folder: 'gollu', target: 'gollu', prefix: 'gollu-set' }
 ];
 
+// Dynamically find founder appreciation folder (handles spelling variations)
+const allSubdirs = fs.readdirSync(srcDir, { withFileTypes: true })
+  .filter(d => d.isDirectory())
+  .map(d => d.name);
+
+const founderFolderOnDisk = allSubdirs.find(d => 
+  d.toLowerCase().includes('founder') || 
+  d.toLowerCase().includes('aprishate') || 
+  d.toLowerCase().includes('master movie')
+);
+
+if (founderFolderOnDisk) {
+  categories.push({ 
+    folder: founderFolderOnDisk, 
+    target: 'founder-appreciation', 
+    prefix: 'appreciation' 
+  });
+}
+
 categories.forEach(({ folder, target, prefix }) => {
   const s = path.join(srcDir, folder);
   const d = path.join(dstDir, target);
@@ -39,7 +58,7 @@ categories.forEach(({ folder, target, prefix }) => {
   if (fs.existsSync(s)) {
     fs.mkdirSync(d, { recursive: true });
     const files = fs.readdirSync(s)
-      .filter(f => !f.startsWith('.'))
+      .filter(f => !f.startsWith('.') && !f.endsWith('.mp4'))
       .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
 
     files.forEach((file, idx) => {
@@ -56,7 +75,21 @@ categories.forEach(({ folder, target, prefix }) => {
   }
 });
 
-// 3. Copy root gallery images
+// 3. Sync Videos
+const videoDst = path.join(__dirname, '..', 'public', 'videos');
+fs.mkdirSync(videoDst, { recursive: true });
+if (founderFolderOnDisk) {
+  const founderFolderPath = path.join(srcDir, founderFolderOnDisk);
+  const videoFiles = fs.readdirSync(founderFolderPath).filter(f => f.endsWith('.mp4'));
+  videoFiles.forEach((vFile) => {
+    const srcV = path.join(founderFolderPath, vFile);
+    const dstV = path.join(videoDst, 'founder-stalin-appreciation.mp4');
+    fs.copyFileSync(srcV, dstV);
+    console.log(`[OK] Synced video '${vFile}' -> 'public/videos/founder-stalin-appreciation.mp4'`);
+  });
+}
+
+// 4. Copy root gallery images
 const galleryDst = path.join(dstDir, 'gallery');
 fs.mkdirSync(galleryDst, { recursive: true });
 
@@ -73,4 +106,4 @@ rootFiles.forEach((file, index) => {
 });
 
 console.log(`[OK] Copied ${rootFiles.length} root gallery images to 'gallery' (real-event-01..${rootFiles.length})`);
-console.log('Successfully synced and standardized all client Yogesh photos!');
+console.log('Successfully synced and standardized all client Yogesh photos & videos!');
