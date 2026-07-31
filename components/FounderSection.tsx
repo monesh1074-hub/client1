@@ -170,7 +170,7 @@ export default function FounderSection() {
                 <span>State Dignitary Commendation</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold dark:text-white light:text-slate-900">
-                Hon'ble CM M.K. Stalin Appreciation &amp; Master Movie Set Video
+                Hon&apos;ble CM M.K. Stalin Appreciation &amp; Master Movie Set Video
               </h3>
               <p className="text-xs sm:text-sm dark:text-slate-300 light:text-slate-600">
                 Click any photo on the right to display it on the big screen below, or play the official appreciation video.
