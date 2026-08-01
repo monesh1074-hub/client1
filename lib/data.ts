@@ -332,11 +332,11 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
     title: "Master Movie Set Completion Celebration & CM M.K. Stalin Appreciation",
     category: "movies",
     categoryLabel: "Master Movie Set Completion Celebration",
-    image: "/images/client/founder-appreciation/appreciation-01.jpeg",
+    image: "/images/client/founder-appreciation/appreciation-02.jpeg",
     video: "/videos/founder-stalin-appreciation.mp4",
     gallery: [
-      "/images/client/founder-appreciation/appreciation-01.jpeg",
       "/images/client/founder-appreciation/appreciation-02.jpeg",
+      "/images/client/founder-appreciation/appreciation-01.jpeg",
       "/images/client/founder-appreciation/appreciation-03.jpeg",
       "/images/client/founder-appreciation/appreciation-04.jpeg"
     ],
