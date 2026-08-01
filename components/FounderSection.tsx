@@ -13,11 +13,11 @@ export default function FounderSection() {
 
   const appreciationPhotos = [
     {
-      src: '/images/client/founder-appreciation/appreciation-01.jpeg',
-      caption: 'CM M.K. Stalin Stage Honor & Special Decoration Award'
+      src: '/images/client/founder-appreciation/appreciation-02.jpeg',
+      caption: 'CM M.K. Stalin Stage Honor & Special Decoration'
     },
     {
-      src: '/images/client/founder-appreciation/appreciation-02.jpeg',
+      src: '/images/client/founder-appreciation/appreciation-01.jpeg',
       caption: 'Founder Perumal Commendation by M.K. Stalin for event management'
     },
     {
