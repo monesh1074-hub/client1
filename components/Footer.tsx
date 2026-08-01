@@ -12,67 +12,70 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-slate-900 text-slate-300 border-t border-gold-500/20 pt-16 pb-8 relative transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <footer className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-slate-900 text-slate-300 border-t border-gold-500/20 pt-10 pb-6 sm:pt-16 sm:pb-8 relative transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-12">
           
           {/* Brand Col */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 space-y-3 sm:space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden border-2 border-gold-400/90 shadow-2xl gold-glow bg-obsidian-950 shrink-0 flex items-center justify-center">
+              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded-xl overflow-hidden border-2 border-gold-400/90 shadow-2xl gold-glow bg-obsidian-950 shrink-0 flex items-center justify-center">
                 <Image
                   src="/logo.jpeg"
-                  alt="EventPlus Logo"
+                  alt="Kalai Decorators Logo"
                   width={160}
                   height={160}
                   className="w-full h-full object-cover scale-110 rounded-lg"
                 />
               </div>
-              <span className="font-serif text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                EVENT<span className="text-gold-400">PLUS</span>
+              <span className="font-serif text-xl sm:text-3xl font-extrabold text-white tracking-tight">
+                KALAI <span className="text-gold-400">DECORATORS</span>
               </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              India&apos;s leading event management &amp; luxury wedding planning company with <strong className="text-gold-400">27+ years</strong> of mastery. Specializing in destination weddings, corporate summits, live concerts, brand activations, and mega stage set productions.
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed line-clamp-3 sm:line-clamp-none">
+              South India&apos;s leading stage architecture &amp; event decoration powerhouse with <strong className="text-gold-400">27+ years</strong> of operational mastery. Specializing in VVIP political rallies, Kollywood cinema audio launches (Vikram, Master, Leo), and royal weddings.
             </p>
 
-            <div className="pt-2 text-xs text-gold-400 font-semibold uppercase tracking-wider">
-              India Headquarters &amp; Central Operations: Chennai &amp; PAN India
+            <div className="pt-1 text-[11px] sm:text-xs text-gold-400 font-semibold uppercase tracking-wider">
+              Central Operations: Alapakkam, Chennai &amp; All 38 Districts of Tamil Nadu
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
-              Navigation
-            </h4>
-            <ul className="space-y-2 text-xs font-medium text-slate-300">
-              <li><a href="#hero" className="hover:text-gold-400 transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-gold-400 transition-colors">About Company</a></li>
-              <li><a href="#founder" className="hover:text-gold-400 transition-colors">Founder Story</a></li>
-              <li><a href="#services" className="hover:text-gold-400 transition-colors">Services</a></li>
-              <li><a href="#featured-projects" className="hover:text-gold-400 transition-colors">Featured Projects</a></li>
-              <li><a href="#portfolio" className="hover:text-gold-400 transition-colors">Project Portfolio</a></li>
-              <li><a href="#booking" className="hover:text-gold-400 transition-colors">Book Event</a></li>
-            </ul>
-          </div>
+          {/* Quick Links & Specializations 2-Column Grid on Mobile */}
+          <div className="grid grid-cols-2 gap-4 lg:col-span-5">
+            {/* Quick Links */}
+            <div className="space-y-2 sm:space-y-3">
+              <h4 className="font-serif text-xs sm:text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
+                Navigation
+              </h4>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs font-medium text-slate-300">
+                <li><a href="#hero" className="hover:text-gold-400 transition-colors">Home</a></li>
+                <li><a href="#about" className="hover:text-gold-400 transition-colors">About Us</a></li>
+                <li><a href="#founder" className="hover:text-gold-400 transition-colors">Founder Story</a></li>
+                <li><a href="#services" className="hover:text-gold-400 transition-colors">Services</a></li>
+                <li><a href="#featured-projects" className="hover:text-gold-400 transition-colors">Projects</a></li>
+                <li><a href="#portfolio" className="hover:text-gold-400 transition-colors">Portfolio</a></li>
+                <li><a href="#booking" className="hover:text-gold-400 transition-colors">Book Stage</a></li>
+              </ul>
+            </div>
 
-          {/* Specializations */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
-              Event Categories
-            </h4>
-            <ul className="space-y-2 text-xs font-medium text-slate-300">
-              <li><a href="#services" className="hover:text-gold-400 transition-colors">Royal Weddings &amp; Floral Mandapams</a></li>
-              <li><a href="#services" className="hover:text-gold-400 transition-colors">Corporate Summits &amp; Conferences</a></li>
-              <li><a href="#services" className="hover:text-gold-400 transition-colors">Live Concerts &amp; Entertainment Shows</a></li>
-              <li><a href="#services" className="hover:text-gold-400 transition-colors">Brand Activations &amp; Stalls</a></li>
-              <li><a href="#services" className="hover:text-gold-400 transition-colors">Political Rallies &amp; Public Meetings</a></li>
-              <li><a href="#services" className="hover:text-gold-400 transition-colors">Movie Audio Launches &amp; Red Carpets</a></li>
-            </ul>
+            {/* Specializations */}
+            <div className="space-y-2 sm:space-y-3">
+              <h4 className="font-serif text-xs sm:text-sm font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
+                Mastery
+              </h4>
+              <ul className="space-y-1.5 sm:space-y-2 text-xs font-medium text-slate-300">
+                <li><a href="#services" className="hover:text-gold-400 transition-colors">Political Rallies</a></li>
+                <li><a href="#services" className="hover:text-gold-400 transition-colors">Cinema Set Works</a></li>
+                <li><a href="#services" className="hover:text-gold-400 transition-colors">Royal Weddings</a></li>
+                <li><a href="#services" className="hover:text-gold-400 transition-colors">Temple Festivals</a></li>
+                <li><a href="#services" className="hover:text-gold-400 transition-colors">Civic Ceremonies</a></li>
+                <li><a href="#services" className="hover:text-gold-400 transition-colors">Expos &amp; Summits</a></li>
+              </ul>
+            </div>
           </div>
 
           {/* Contact Direct */}
@@ -103,7 +106,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start space-x-2 text-slate-400 pt-1">
                 <MapPin className="w-3.5 h-3.5 text-gold-400 shrink-0 mt-0.5" />
-                <span>No. 2/11, Jayalakshmi Nagar, Ganapathi Street, Alapakkam, Chennai, Tamil Nadu, India</span>
+                <span>No. 4/450, Alapakkam Main Road, Alapakkam, Chennai, Tamil Nadu - 600116</span>
               </div>
             </div>
           </div>
@@ -113,7 +116,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            &copy; {new Date().getFullYear()} <strong className="text-white">EventPlus India</strong>. All Rights Reserved. Mastermind Event Planning.
+            &copy; {new Date().getFullYear()} <strong className="text-white">Kalai Decorators</strong>. All Rights Reserved. Master Craftsman Perumal.
           </div>
 
           <div className="flex items-center space-x-4">

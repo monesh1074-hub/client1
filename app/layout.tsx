@@ -5,40 +5,40 @@ import { LanguageProvider } from '@/context/LanguageContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata: Metadata = {
-  title: `${COMPANY_DETAILS.name} | Premier Event & Wedding Management Company India`,
-  description: 'EventPlus is India’s leading event management & luxury wedding planning company. Expert in destination weddings, corporate conferences, product launches, live concerts, and grand celebrations.',
+  title: `${COMPANY_DETAILS.name} | Stage Architecture & Event Decor Powerhouse Tamil Nadu`,
+  description: 'Kalai Decorators is South India’s premier stage architecture, political rally setup, Kollywood cinema set engineering, and luxury wedding decoration company founded by Perumal in 1999.',
   keywords: [
-    'Eventplus',
-    'Eventplus India',
-    'Event management company India',
-    'Wedding planning company India',
-    'Best event planners in India',
-    'Destination wedding planner',
-    'Corporate event management company',
-    'Live concert management',
-    'Luxury wedding decorators',
-    'Event stage setup and lighting',
-    'Celebrity event management',
-    'Conference and exhibition planners'
+    'Kalai Decorators',
+    'Kalai Decorators Chennai',
+    'Stage Decorator Tamil Nadu',
+    'VVIP Political Rally Stage Setup',
+    'Cinema Audio Launch Set Production',
+    'Master Movie Set Production',
+    'Royal Wedding Mandapam Decorator',
+    'Event Stage Engineering Chennai',
+    'Founder Perumal Decorator',
+    'Alapakkam Chennai Event Decorators',
+    'Heavy Steel Trussing Stage Setup',
+    'State Convention Stage Decorators'
   ],
-  authors: [{ name: 'EventPlus India Team' }],
-  creator: 'EventPlus India',
-  publisher: 'EventPlus India',
-  metadataBase: new URL('https://www.eventplus.co.in'),
+  authors: [{ name: 'Kalai Decorators Team' }],
+  creator: 'Kalai Decorators',
+  publisher: 'Kalai Decorators',
+  metadataBase: new URL('https://www.kalaidecorators.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: `${COMPANY_DETAILS.name} | Leading Event & Wedding Planning Company in India`,
-    description: 'Organizing powerful, luxury & unforgettable celebrations & corporate events across India. 10+ years of excellence, 500+ successful events.',
-    url: 'https://www.eventplus.co.in',
-    siteName: 'EventPlus',
+    title: `${COMPANY_DETAILS.name} | 27+ Years of Stage Architecture & Event Decor Mastery`,
+    description: 'Specializing in engineered political mega rally stages, blockbuster cinema audio launches, and royal weddings across Tamil Nadu and South India.',
+    url: 'https://www.kalaidecorators.com',
+    siteName: 'Kalai Decorators',
     images: [
       {
-        url: '/images/portfolio/kalai-event-01.jpeg',
+        url: '/images/master-set-vijay-perumal-thumbnail.jpg',
         width: 1200,
         height: 630,
-        alt: 'EventPlus India Premier Event Management',
+        alt: 'Kalai Decorators Master Stage Setup with Founder Perumal',
       },
     ],
     locale: 'en_IN',
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${COMPANY_DETAILS.name} | Premier Event Management & Wedding Planner`,
-    description: 'India’s premier event management company for corporate events, weddings, and live shows.',
-    images: ['/images/portfolio/kalai-event-01.jpeg'],
+    title: `${COMPANY_DETAILS.name} | Premier Stage Architecture & Event Decorator`,
+    description: 'South India’s trusted stage architecture power with 27+ years of operational excellence.',
+    images: ['/images/master-set-vijay-perumal-thumbnail.jpg'],
   },
   robots: {
     index: true,
@@ -77,9 +77,9 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'EventPlanningService',
     'name': COMPANY_DETAILS.name,
-    'image': 'https://www.eventplus.co.in/wp-content/uploads/2024/04/eevntplus-social-share.png',
-    '@id': 'https://www.eventplus.co.in',
-    'url': 'https://www.eventplus.co.in',
+    'image': 'https://www.kalaidecorators.com/images/master-set-vijay-perumal-thumbnail.jpg',
+    '@id': 'https://www.kalaidecorators.com',
+    'url': 'https://www.kalaidecorators.com',
     'telephone': COMPANY_DETAILS.contact.primaryPhone,
     'email': COMPANY_DETAILS.contact.primaryEmail,
     'priceRange': '₹₹₹',
@@ -93,21 +93,21 @@ export default function RootLayout({
     },
     'founder': {
       '@type': 'Person',
-      'name': 'Perumal & EventPlus Team',
-      'jobTitle': 'Founders & Creative Directors'
+      'name': 'Founder Perumal',
+      'jobTitle': 'Founder & Master Stage Architecture Director'
     },
     'areaServed': [
-      'India',
+      'Tamil Nadu',
       'Chennai',
-      'Mumbai',
-      'Bengaluru',
-      'Delhi NCR',
-      'Hyderabad',
-      'Goa',
-      'Jaipur',
-      'Coimbatore'
+      'Madurai',
+      'Coimbatore',
+      'Trichy',
+      'Salem',
+      'Tirunelveli',
+      'Vellore',
+      'South India'
     ],
-    'description': 'EventPlus is India’s leading Event & Wedding Planning Company, creating extraordinary celebrations, grand weddings, corporate launches, and live entertainment events.'
+    'description': 'Kalai Decorators is South India’s leading stage architecture and event decor engineering company, creating VVIP political rallies, cinema set productions, and royal wedding celebrations since 1999.'
   };
 
   return (

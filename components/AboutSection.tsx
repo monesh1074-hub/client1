@@ -17,10 +17,10 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-white py-20 lg:py-28 relative overflow-hidden transition-colors duration-300">
+    <section id="about" className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-white py-10 lg:py-28 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
           {/* Left Visual Gallery Stack */}
           <motion.div 
@@ -36,15 +36,15 @@ export default function AboutSection() {
               <div className="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl bg-obsidian-850 dark:bg-obsidian-850 light:bg-slate-100 group">
                 <Image
                   src="/images/client/important/important-02.jpeg"
-                  alt="EventPlus Grand Stage & Celebration Setup"
+                  alt="Kalai Decorators Grand Stage & Celebration Setup"
                   width={700}
                   height={500}
-                  className="w-full h-[380px] sm:h-[450px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-[240px] sm:h-[450px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4 p-4 bg-obsidian-900/90 dark:bg-obsidian-900/90 light:bg-slate-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
-                  <div className="text-xs font-semibold text-gold-400 uppercase tracking-widest">{t('hero.featuredCaseStudy')}</div>
-                  <div className="text-sm font-bold text-white">{t('about.title')}</div>
+                <div className="absolute bottom-3 left-3 right-3 p-3 bg-obsidian-900/90 dark:bg-obsidian-900/90 light:bg-slate-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
+                  <div className="text-[10px] sm:text-xs font-semibold text-gold-400 uppercase tracking-widest">{t('hero.featuredCaseStudy')}</div>
+                  <div className="text-xs sm:text-sm font-bold text-white truncate">{t('about.title')}</div>
                 </div>
               </div>
 
@@ -55,7 +55,7 @@ export default function AboutSection() {
               >
                 <Image
                   src="/images/client/marriage/wedding-set-01.jpeg"
-                  alt="EventPlus Royal Wedding Floral Setup"
+                  alt="Kalai Decorators Royal Wedding Floral Setup"
                   width={400}
                   height={300}
                   className="w-full h-48 object-cover"
@@ -63,10 +63,10 @@ export default function AboutSection() {
               </motion.div>
 
               {/* Floating Badge */}
-              <div className="absolute -top-6 -left-6 bg-gold-gradient p-0.5 rounded-xl shadow-xl">
-                <div className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-slate-900 px-5 py-3 rounded-[10px] flex items-center space-x-3">
-                  <div className="text-2xl font-bold font-serif text-gold-400">27+</div>
-                  <div className="text-xs font-semibold text-slate-200 uppercase tracking-wider leading-tight">
+              <div className="absolute -top-4 -left-3 sm:-top-6 sm:-left-6 bg-gold-gradient p-0.5 rounded-xl shadow-xl z-10">
+                <div className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-slate-900 px-3 py-2 sm:px-5 sm:py-3 rounded-[10px] flex items-center space-x-2 sm:space-x-3">
+                  <div className="text-xl sm:text-2xl font-bold font-serif text-gold-400">27+</div>
+                  <div className="text-[10px] sm:text-xs font-semibold text-slate-200 uppercase tracking-wider leading-tight">
                     {t('about.subtitle')}
                   </div>
                 </div>
@@ -81,23 +81,23 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-6 space-y-6"
+            className="lg:col-span-6 space-y-4 sm:space-y-6"
           >
             
-            <div className="space-y-2">
+            <div className="space-y-1 sm:space-y-2">
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
                 {t('about.subtitle')}
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-white light:text-slate-900 leading-tight">
+              <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold dark:text-white light:text-slate-900 leading-tight">
                 {t('about.title')}
               </h2>
             </div>
 
-            <p className="text-base dark:text-slate-300 light:text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-base dark:text-slate-300 light:text-slate-700 leading-relaxed">
               {t('about.p1')}
             </p>
 
-            <p className="text-sm dark:text-slate-400 light:text-slate-600 leading-relaxed">
+            <p className="text-xs sm:text-sm dark:text-slate-400 light:text-slate-600 leading-relaxed hidden sm:block">
               {t('about.p2')}
             </p>
 

@@ -5,7 +5,7 @@ import {
   X, Send, Bot, Sparkles, 
   Calculator, Calendar, Phone, 
   ChevronRight, Volume2, VolumeX, RefreshCw, ArrowRight,
-  ShieldCheck
+  ShieldCheck, HelpCircle, ChevronDown
 } from 'lucide-react';
 import { COMPANY_DETAILS } from '@/lib/data';
 import { useLanguage } from '@/context/LanguageContext';
@@ -16,7 +16,7 @@ interface ChatMessage {
   text: string;
   timestamp: string;
   options?: { label: string; action: string; icon?: string }[];
-  isWidget?: 'calculator' | 'dateCheck' | 'leadForm' | 'success';
+  isWidget?: 'calculator' | 'dateCheck' | 'leadForm' | 'success' | 'faq';
 }
 
 interface CostEstimateState {
@@ -27,12 +27,20 @@ interface CostEstimateState {
 }
 
 export default function EventChatbot() {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [unreadCount, setUnreadCount] = useState(1);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0);
+
+  const translatedFaqs = [
+    { id: 1, question: t('faq.q1'), answer: t('faq.a1'), category: language === 'ta' ? 'முன்பதிவு' : 'Booking' },
+    { id: 2, question: t('faq.q2'), answer: t('faq.a2'), category: language === 'ta' ? 'மாவட்டங்கள்' : 'Coverage' },
+    { id: 3, question: t('faq.q3'), answer: t('faq.a3'), category: language === 'ta' ? 'சினிமா' : 'Cinema' },
+    { id: 4, question: t('faq.q4'), answer: t('faq.a4'), category: language === 'ta' ? 'பாதுகாப்பு' : 'Safety' },
+  ];
 
   // Widget States inside Chat
   const [costState, setCostState] = useState<CostEstimateState>({
@@ -61,6 +69,7 @@ export default function EventChatbot() {
       : 'Hello! I am your **Kalai Decorators AI Event Concierge**. How can I help you plan your dream event or talk to our owner today?',
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     options: [
+      { label: language === 'ta' ? '❓ அடிக்கடி கேட்கப்படும் கேள்விகள் (FAQ)' : '❓ Frequently Asked Questions (FAQ)', action: 'show_faq', icon: 'HelpCircle' },
       { label: '📞 Talk to Owner (6381147719)', action: 'show_owner', icon: 'Phone' },
       { label: '💰 Estimate Event Cost', action: 'show_calculator', icon: 'Calculator' },
       { label: '💍 Wedding Planning', action: 'ask_wedding', icon: 'Sparkles' },
@@ -182,6 +191,21 @@ export default function EventChatbot() {
           }
         ]);
       }, 850);
+    } else if (option.action === 'show_faq') {
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: Date.now().toString(),
+            sender: 'bot',
+            text: language === 'ta'
+              ? 'எங்களிடம் அடிக்கடி கேட்கப்படும் முக்கிய கேள்விகளுக்கான பதில்கள் கீழே உள்ளன. விவரங்களைப் பார்க்க ஏதேனும் கேள்வியைக் கிளிக் செய்யவும்:'
+              : 'Here are the answers to our most **Frequently Asked Questions (FAQ)**. Click any question below to view details:',
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            isWidget: 'faq'
+          }
+        ]);
+      }, 850);
     }
   };
 
@@ -191,6 +215,44 @@ export default function EventChatbot() {
     let options: { label: string; action: string }[] | undefined = undefined;
 
     if (
+      lower.includes('faq') ||
+      lower.includes('frequently') ||
+      lower.includes('question') ||
+      lower.includes('doubt')
+    ) {
+      replyText = language === 'ta'
+        ? 'எங்களிடம் அடிக்கடி கேட்கப்படும் முக்கிய கேள்விகளுக்கான பதில்கள் கீழே உள்ளன. விவரங்களைப் பார்க்க ஏதேனும் கேள்வியைக் கிளிக் செய்யவும்:'
+        : 'Here are our most **Frequently Asked Questions (FAQ)**. Click on any question below to expand details or call our Owner at **6381147719**:';
+      options = [
+        { label: '❓ Browse All FAQs', action: 'show_faq' },
+        { label: '📞 Talk to Owner (6381147719)', action: 'show_owner' },
+        { label: '💰 Estimate Event Cost', action: 'show_calculator' }
+      ];
+    } else if (lower.includes('advance') || lower.includes('early') || lower.includes('when to book') || lower.includes('how early')) {
+      replyText = `📅 **Booking Timeline FAQ**:\n\n${t('faq.a1')}\n\nOwner Direct Line: **6381147719**`;
+      options = [
+        { label: '📅 Check Date Schedule', action: 'show_datecheck' },
+        { label: '📞 Call Owner: 6381147719', action: 'show_owner' }
+      ];
+    } else if (lower.includes('outside') || lower.includes('district') || lower.includes('coverage') || lower.includes('state')) {
+      replyText = `📍 **Service Area FAQ**:\n\n${t('faq.a2')}\n\nWe deliver stage setup logistics across South India. Call Owner: **6381147719**`;
+      options = [
+        { label: '📅 Check Location Schedule', action: 'show_datecheck' },
+        { label: '📞 Call Owner: 6381147719', action: 'show_owner' }
+      ];
+    } else if (lower.includes('movie') || lower.includes('cinema') || lower.includes('vikram') || lower.includes('master') || lower.includes('leo') || lower.includes('kaithi')) {
+      replyText = `🎬 **Cinema & Movie Set FAQ**:\n\n${t('faq.a3')}\n\nCall Founder Perumal at **6381147719** for film set decor contracts.`;
+      options = [
+        { label: '📞 Talk to Owner (6381147719)', action: 'show_owner' },
+        { label: '❓ Browse FAQs', action: 'show_faq' }
+      ];
+    } else if (lower.includes('truss') || lower.includes('capacity') || lower.includes('safety') || lower.includes('crowd') || lower.includes('100,000') || lower.includes('steel')) {
+      replyText = `🛡️ **Structural Safety & Capacity FAQ**:\n\n${t('faq.a4')}\n\nHeavy steel trussing and 100% certified safety engineering. Call Owner: **6381147719**`;
+      options = [
+        { label: '📞 Call Owner: 6381147719', action: 'show_owner' },
+        { label: '💰 Calculate Budget', action: 'show_calculator' }
+      ];
+    } else if (
       lower.includes('owner') ||
       lower.includes('founder') ||
       lower.includes('perumal') ||
@@ -572,6 +634,65 @@ export default function EventChatbot() {
                           Submit Callback Request
                         </button>
                       </form>
+                    )}
+
+                    {/* FAQ Accordion Widget */}
+                    {msg.isWidget === 'faq' && (
+                      <div className="mt-3 p-3 rounded-xl bg-obsidian-900 border border-gold-400/30 space-y-2 text-slate-200">
+                        <div className="flex items-center justify-between text-xs font-bold text-gold-400 border-b border-slate-800 pb-2">
+                          <span className="flex items-center gap-1.5">
+                            <HelpCircle className="w-3.5 h-3.5" /> {language === 'ta' ? 'அடிக்கடி கேட்கப்படும் கேள்விகள்' : 'Frequently Asked Questions'}
+                          </span>
+                          <span className="text-[10px] font-normal text-slate-400">4 Answers</span>
+                        </div>
+
+                        <div className="space-y-1.5 mt-2">
+                          {translatedFaqs.map((faq, idx) => {
+                            const isOpen = activeFaqIndex === idx;
+                            return (
+                              <div
+                                key={faq.id}
+                                className="border border-slate-800 rounded-lg bg-obsidian-950 overflow-hidden text-xs transition-all"
+                              >
+                                <button
+                                  type="button"
+                                  onClick={() => setActiveFaqIndex(isOpen ? null : idx)}
+                                  className="w-full p-2.5 text-left flex justify-between items-center gap-2 hover:bg-gold-500/10 transition-colors"
+                                >
+                                  <span className="font-semibold text-slate-200 pr-1 text-[11px] sm:text-xs">
+                                    {faq.question}
+                                  </span>
+                                  <ChevronDown
+                                    className={`w-3.5 h-3.5 text-gold-400 shrink-0 transform transition-transform duration-200 ${
+                                      isOpen ? 'rotate-180' : ''
+                                    }`}
+                                  />
+                                </button>
+                                {isOpen && (
+                                  <div className="px-2.5 pb-2.5 text-[11px] text-slate-300 border-t border-slate-800/60 pt-2 space-y-2">
+                                    <p className="leading-relaxed">{faq.answer}</p>
+                                    <div className="flex items-center justify-between pt-1">
+                                      <span className="text-[9px] font-semibold text-gold-400 bg-gold-500/10 px-2 py-0.5 rounded border border-gold-500/20 uppercase tracking-wider">
+                                        {faq.category}
+                                      </span>
+                                      <button
+                                        type="button"
+                                        onClick={() => {
+                                          handleSendMessage(`I have a question about: ${faq.question}`);
+                                          handleOptionClick({ label: '📞 Talk to Owner (6381147719)', action: 'show_leadform' });
+                                        }}
+                                        className="text-[10px] text-gold-400 hover:underline flex items-center gap-1 font-medium"
+                                      >
+                                        Ask Owner <ArrowRight className="w-2.5 h-2.5" />
+                                      </button>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
                     )}
                   </div>
                 </div>

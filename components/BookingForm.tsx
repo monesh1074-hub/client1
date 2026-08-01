@@ -2,8 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, AlertCircle, Send, Phone, ShieldCheck, Sparkles, X } from 'lucide-react';
-import { COMPANY_DETAILS } from '@/lib/data';
+import { CheckCircle2, AlertCircle, Send, X, Calendar } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function BookingForm() {
@@ -108,73 +107,35 @@ export default function BookingForm() {
   };
 
   return (
-    <section id="booking" className="bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-100 border-y border-gold-500/20 py-20 lg:py-28 relative transition-colors duration-300">
+    <section id="booking" className="bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-100 border-y border-gold-500/20 py-10 lg:py-28 relative transition-colors duration-300">
       
       {/* Background Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold-500/10 blur-[150px] pointer-events-none animate-pulse-glow" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Intro Info Column */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-6"
-          >
-            
-            <div className="space-y-2">
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400 flex items-center">
-                <Sparkles className="w-4 h-4 mr-2 animate-spin-slow" />
-                {t('nav.enquire')}
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-white light:text-slate-900">
-                {t('booking.title')}
-              </h2>
-            </div>
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-2 sm:space-y-3 mb-6 sm:mb-10"
+        >
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+            <Calendar className="w-3.5 h-3.5" />
+            <span>Instant Booking &amp; Cost Estimation</span>
+          </div>
+          <h2 className="font-serif text-2xl sm:text-4xl font-bold dark:text-white light:text-slate-900">
+            {t('booking.title')}
+          </h2>
+          <p className="text-xs sm:text-base dark:text-slate-300 light:text-slate-700 max-w-2xl mx-auto line-clamp-2 sm:line-clamp-none">
+            {t('booking.desc')}
+          </p>
+        </motion.div>
 
-            <p className="text-sm sm:text-base dark:text-slate-300 light:text-slate-700 leading-relaxed">
-              {t('booking.desc')}
-            </p>
-
-            <div className="space-y-4 pt-2">
-              <motion.div 
-                whileHover={{ x: 5 }}
-                className="flex items-start space-x-3 bg-obsidian-950 dark:bg-obsidian-950 light:bg-white p-4 rounded-xl border border-slate-700/50 dark:border-slate-800 light:border-slate-200"
-              >
-                <ShieldCheck className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold dark:text-white light:text-slate-900 uppercase">{t('hero.safetyCertified')}</h4>
-                  <p className="text-xs dark:text-slate-400 light:text-slate-600">{t('hero.safetyDesc')}</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ x: 5 }}
-                className="flex items-start space-x-3 bg-obsidian-950 dark:bg-obsidian-950 light:bg-white p-4 rounded-xl border border-slate-700/50 dark:border-slate-800 light:border-slate-200"
-              >
-                <Phone className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-bold dark:text-white light:text-slate-900 uppercase">{t('hero.callFounderBtn')}</h4>
-                  <p className="text-xs dark:text-slate-400 light:text-slate-600">{COMPANY_DETAILS.contact.primaryPhone}</p>
-                </div>
-              </motion.div>
-            </div>
-
-          </motion.div>
-
-          {/* Right Booking Form Container */}
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-7"
-          >
-            <div className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-white border border-gold-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+        {/* Booking Form Container */}
+        <div className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-white border border-gold-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-10 shadow-2xl relative">
               
               <h3 className="font-serif text-2xl font-bold dark:text-white light:text-slate-900 mb-6">
                 {t('booking.title')}
@@ -207,33 +168,37 @@ export default function BookingForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name */}
                   <div>
-                    <label className="block text-xs font-semibold dark:text-slate-300 light:text-slate-700 uppercase tracking-wider mb-2">
+                    <label htmlFor="booking-name" className="block text-xs font-semibold dark:text-slate-300 light:text-slate-700 uppercase tracking-wider mb-2">
                       {t('form.name')} *
                     </label>
                     <input
+                      id="booking-name"
                       type="text"
                       name="name"
                       required
+                      aria-required="true"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Sundaram"
-                      className="w-full bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-50 border border-slate-700/50 dark:border-slate-800 light:border-slate-300 focus:border-gold-400 rounded-xl px-4 py-3 text-sm dark:text-white light:text-slate-900 placeholder-slate-500 outline-none transition-colors"
+                      className="w-full bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-50 border border-slate-700/50 dark:border-slate-800 light:border-slate-300 focus:border-gold-400 rounded-xl px-4 py-3 text-sm dark:text-white light:text-slate-900 placeholder-slate-500 focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none transition-colors"
                     />
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label className="block text-xs font-semibold dark:text-slate-300 light:text-slate-700 uppercase tracking-wider mb-2">
+                    <label htmlFor="booking-phone" className="block text-xs font-semibold dark:text-slate-300 light:text-slate-700 uppercase tracking-wider mb-2">
                       Phone Number *
                     </label>
                     <input
+                      id="booking-phone"
                       type="tel"
                       name="phone"
                       required
+                      aria-required="true"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
-                      className="w-full bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-50 border border-slate-700/50 dark:border-slate-800 light:border-slate-300 focus:border-gold-400 rounded-xl px-4 py-3 text-sm dark:text-white light:text-slate-900 placeholder-slate-500 outline-none transition-colors"
+                      className="w-full bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-50 border border-slate-700/50 dark:border-slate-800 light:border-slate-300 focus:border-gold-400 rounded-xl px-4 py-3 text-sm dark:text-white light:text-slate-900 placeholder-slate-500 focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -241,17 +206,19 @@ export default function BookingForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Email */}
                   <div>
-                    <label className="block text-xs font-semibold dark:text-slate-300 light:text-slate-700 uppercase tracking-wider mb-2">
+                    <label htmlFor="booking-email" className="block text-xs font-semibold dark:text-slate-300 light:text-slate-700 uppercase tracking-wider mb-2">
                       Email Address *
                     </label>
                     <input
+                      id="booking-email"
                       type="email"
                       name="email"
                       required
+                      aria-required="true"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your.name@company.com"
-                      className="w-full bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-50 border border-slate-700/50 dark:border-slate-800 light:border-slate-300 focus:border-gold-400 rounded-xl px-4 py-3 text-sm dark:text-white light:text-slate-900 placeholder-slate-500 outline-none transition-colors"
+                      className="w-full bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-50 border border-slate-700/50 dark:border-slate-800 light:border-slate-300 focus:border-gold-400 rounded-xl px-4 py-3 text-sm dark:text-white light:text-slate-900 placeholder-slate-500 focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -339,9 +306,6 @@ export default function BookingForm() {
               </form>
 
             </div>
-          </motion.div>
-
-        </div>
 
       </div>
     </section>

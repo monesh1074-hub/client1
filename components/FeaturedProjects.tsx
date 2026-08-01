@@ -10,44 +10,48 @@ export default function FeaturedProjects() {
   const { t } = useLanguage();
 
   return (
-    <section id="featured-projects" className="bg-obsidian-950 py-20 lg:py-28 relative">
+    <section id="featured-projects" className="bg-obsidian-950 py-10 lg:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16 space-y-2 sm:space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
             {t('projects.subtitle')}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-white">
             {t('projects.title')}
           </h2>
-          <p className="text-sm sm:text-base text-slate-300">
+          <p className="text-xs sm:text-base text-slate-300 line-clamp-2 sm:line-clamp-none">
             {t('projects.desc')}
           </p>
         </div>
 
         {/* Case Studies Stack */}
-        <div className="space-y-12 lg:space-y-16">
+        <div className="space-y-6 sm:space-y-12 lg:space-y-16">
           {FEATURED_PROJECTS.map((project, index) => {
             const isEven = index % 2 === 0;
             return (
               <div
                 key={project.id}
-                className="bg-obsidian-850 border border-gold-500/20 rounded-3xl overflow-hidden shadow-2xl hover:border-gold-500/40 transition-all duration-300"
+                className="bg-obsidian-850 border border-gold-500/20 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl hover:border-gold-500/40 transition-all duration-300"
               >
-                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center`}>
+                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center`}>
                   
-                  {/* Case Study Image */}
+                  {/* Case Study Image / Video */}
                   <div className={`lg:col-span-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="relative h-[320px] sm:h-[420px] w-full overflow-hidden group rounded-2xl">
+                    <div className="relative aspect-video sm:h-[420px] w-full overflow-hidden group rounded-xl sm:rounded-2xl bg-obsidian-950">
                       {project.video ? (
                         <video
                           controls
+                          playsInline
                           preload="metadata"
                           poster={project.image}
-                          src={project.video}
-                          className="w-full h-full object-contain bg-obsidian-950 rounded-2xl"
-                        />
+                          className="w-full h-full object-contain bg-obsidian-950 rounded-xl sm:rounded-2xl"
+                        >
+                          <source src={project.video} type="video/mp4" />
+                          <source src="/videos/founder-stalin-appreciation.mp4" type="video/mp4" />
+                          Your browser does not support playing this video.
+                        </video>
                       ) : (
                         <Image
                           src={project.image}
@@ -59,19 +63,19 @@ export default function FeaturedProjects() {
                           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent pointer-events-none" />
                       
-                      <div className="absolute top-4 left-4 bg-gold-gradient px-3 py-1 rounded-full text-xs font-bold text-obsidian-950 uppercase tracking-wider shadow-lg z-10">
+                      <div className="absolute top-3 left-3 bg-gold-gradient px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold text-obsidian-950 uppercase tracking-wider shadow-lg z-10">
                         {project.categoryLabel}
                       </div>
                     </div>
                   </div>
 
                   {/* Case Study Details */}
-                  <div className={`lg:col-span-6 p-6 sm:p-8 lg:p-10 ${isEven ? 'lg:order-2' : 'lg:order-1'} space-y-6`}>
+                  <div className={`lg:col-span-6 p-4 sm:p-8 lg:p-10 ${isEven ? 'lg:order-2' : 'lg:order-1'} space-y-4 sm:space-y-6`}>
                     
-                    <div className="space-y-2">
-                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight">
+                    <div className="space-y-1 sm:space-y-2">
+                      <h3 className="font-serif text-xl sm:text-3xl font-bold text-white leading-tight">
                         {project.title}
                       </h3>
                       

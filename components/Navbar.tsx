@@ -43,7 +43,7 @@ export default function Navbar() {
             </span>
             <span className="text-slate-500">|</span>
             <span className="text-slate-300">
-              India&apos;s Premier Event &amp; Wedding Management Company
+              Tamil Nadu&apos;s Premier Stage Architecture &amp; Event Decorators (Est. 1999)
             </span>
           </div>
           <div className="flex items-center space-x-5">
@@ -92,7 +92,7 @@ export default function Navbar() {
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl overflow-hidden border-2 border-gold-400/90 shadow-2xl gold-glow group-hover:scale-105 transition-transform bg-obsidian-950 flex items-center justify-center shrink-0">
               <Image
                 src="/logo.jpeg"
-                alt="EventPlus Official Logo"
+                alt="Kalai Decorators Official Logo"
                 width={150}
                 height={150}
                 priority
@@ -101,10 +101,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-xl sm:text-2xl font-extrabold tracking-tight text-white group-hover:text-gold-400 transition-colors whitespace-nowrap">
-                EVENT<span className="text-gold-400">PLUS</span>
+                KALAI <span className="text-gold-400">DECORATORS</span>
               </span>
               <span className="text-[10px] sm:text-xs text-slate-400 tracking-wider uppercase font-medium whitespace-nowrap">
-                {language === 'ta' ? 'நிகழ்ச்சி & திருமண மேலாண்மை' : 'Event & Wedding Management'}
+                {language === 'ta' ? 'மாபெரும் மேடை & கலை அலங்காரங்கள்' : 'Stage Architecture & Event Decor'}
               </span>
             </div>
           </Link>
@@ -154,8 +154,10 @@ export default function Navbar() {
           <div className="flex items-center gap-2 xl:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-300 bg-obsidian-850 border border-slate-800"
-              aria-label="Toggle navigation menu"
+              className="p-2 rounded-lg text-slate-300 bg-obsidian-850 border border-slate-800 focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none"
+              aria-label="Toggle main navigation menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation-menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -164,7 +166,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-obsidian-950 border-b border-gold-500/20 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
+          <div id="mobile-navigation-menu" className="xl:hidden bg-obsidian-950 border-b border-gold-500/20 px-4 pt-4 pb-6 space-y-3 shadow-2xl">
             <div className="grid grid-cols-2 gap-2 pb-3 border-b border-slate-800">
               <button
                 onClick={toggleLanguage}

@@ -80,7 +80,7 @@ export default function PortfolioGallery() {
   };
 
   return (
-    <section id="portfolio" className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-slate-50 py-20 lg:py-28 border-b border-gold-500/20 transition-colors duration-300">
+    <section id="portfolio" className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-slate-50 py-10 lg:py-28 border-b border-gold-500/20 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -89,21 +89,21 @@ export default function PortfolioGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-6 sm:mb-12 space-y-2 sm:space-y-3"
         >
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
             {t('portfolio.subtitle')}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-white light:text-slate-900">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold dark:text-white light:text-slate-900">
             {t('portfolio.title')}
           </h2>
-          <p className="text-sm sm:text-base dark:text-slate-300 light:text-slate-700">
+          <p className="text-xs sm:text-base dark:text-slate-300 light:text-slate-700 line-clamp-2 sm:line-clamp-none">
             Explore 1,200+ completed stage productions, political mega rallies, Kollywood cinema set designs, and royal weddings across India.
           </p>
         </motion.div>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex overflow-x-auto sm:flex-wrap sm:justify-center gap-2 mb-6 sm:mb-12 pb-2 no-scrollbar scroll-smooth">
           {categories.map((cat) => {
             const isActive = cat.id === activeCategory;
             return (
@@ -115,7 +115,7 @@ export default function PortfolioGallery() {
                   setActiveCategory(cat.id);
                   setVisibleCount(12);
                 }}
-                className={`px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                className={`px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 shrink-0 ${
                   isActive
                     ? 'bg-gold-gradient text-obsidian-950 shadow-md gold-glow font-bold scale-105'
                     : 'bg-obsidian-850 dark:bg-obsidian-850 light:bg-white dark:text-slate-300 light:text-slate-700 hover:text-gold-400 border border-slate-700/50 dark:border-slate-800 light:border-slate-200'
@@ -208,8 +208,17 @@ export default function PortfolioGallery() {
 
       {/* Lightbox Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-obsidian-950/95 backdrop-blur-xl animate-in fade-in duration-200">
-          <div className="relative bg-obsidian-900 dark:bg-obsidian-900 light:bg-white border border-gold-500/40 rounded-3xl max-w-6xl w-full overflow-hidden shadow-2xl max-h-[96vh] flex flex-col">
+        <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedItem.title} Photo Gallery`}
+          onClick={() => setSelectedItem(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-obsidian-950/95 backdrop-blur-xl animate-in fade-in duration-200"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative bg-obsidian-900 dark:bg-obsidian-900 light:bg-white border border-gold-500/40 rounded-3xl max-w-6xl w-full overflow-hidden shadow-2xl max-h-[96vh] flex flex-col"
+          >
             
             {/* Modal Header */}
             <div className="px-6 py-4 border-b border-slate-800 flex justify-between items-center bg-obsidian-950">
@@ -227,8 +236,9 @@ export default function PortfolioGallery() {
               </div>
               <button
                 onClick={() => setSelectedItem(null)}
-                className="p-2.5 rounded-full text-slate-400 hover:text-white bg-obsidian-850 border border-slate-800 hover:border-gold-400 transition-all"
+                className="p-2.5 rounded-full text-slate-400 hover:text-white bg-obsidian-850 border border-slate-800 hover:border-gold-400 transition-all focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none"
                 title="Close Lightbox (Esc)"
+                aria-label="Close photo gallery (Escape)"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -250,13 +260,15 @@ export default function PortfolioGallery() {
                   <>
                     <button
                       onClick={handlePrevPhoto}
-                      className="absolute left-4 p-3 rounded-full bg-obsidian-900/80 text-white hover:text-gold-400 border border-gold-500/40 hover:scale-110 transition-all shadow-xl"
+                      aria-label="Previous Photo"
+                      className="absolute left-4 p-3 rounded-full bg-obsidian-900/80 text-white hover:text-gold-400 border border-gold-500/40 hover:scale-110 transition-all shadow-xl focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none"
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
                       onClick={handleNextPhoto}
-                      className="absolute right-4 p-3 rounded-full bg-obsidian-900/80 text-white hover:text-gold-400 border border-gold-500/40 hover:scale-110 transition-all shadow-xl"
+                      aria-label="Next Photo"
+                      className="absolute right-4 p-3 rounded-full bg-obsidian-900/80 text-white hover:text-gold-400 border border-gold-500/40 hover:scale-110 transition-all shadow-xl focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none"
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>

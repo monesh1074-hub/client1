@@ -98,6 +98,9 @@ export interface CompanyDetails {
     whatsappAlt: string;
     instagram: string;
   };
+  videos?: {
+    stalinAppreciation: string;
+  };
 }
 
 export const COMPANY_DETAILS: CompanyDetails = {
@@ -105,6 +108,9 @@ export const COMPANY_DETAILS: CompanyDetails = {
   tagline: "27+ Years of High-Capacity Event Staging & Cinema Set Mastery (Est. 1999)",
   foundedYear: 1999,
   yearsOfExperience: 27,
+  videos: {
+    stalinAppreciation: process.env.NEXT_PUBLIC_CLOUDINARY_STALIN_VIDEO || "/videos/founder-stalin-appreciation.mp4",
+  },
   founder: {
     name: "Perumal",
     role: "Founder & Master Stage Decorator",
@@ -279,30 +285,6 @@ export const SERVICES: ServiceItem[] = [
 ];
 
 export const FEATURED_PROJECTS: PortfolioItem[] = [
-  {
-    id: "stalin-master-appreciation-video",
-    title: "Hon'ble CM M.K. Stalin Appreciation & Master Movie Set Production",
-    category: "movies",
-    categoryLabel: "CM Stalin Commendation & Cinema Master Set",
-    image: "/images/master-set-vijay-perumal-thumbnail.jpg",
-    video: "/videos/founder-stalin-appreciation.mp4",
-    gallery: [
-      "/images/client/founder-appreciation/appreciation-01.jpeg",
-      "/images/client/founder-appreciation/appreciation-02.jpeg",
-      "/images/client/founder-appreciation/appreciation-03.jpeg",
-      "/images/client/founder-appreciation/appreciation-04.jpeg"
-    ],
-    location: "State Conventions & Jawaharlal Nehru Stadium, Chennai, TN",
-    scale: "Official Appreciation Video + 4 Photo Album • Master Set",
-    description: "Official recognition and video commendation received by Founder Perumal from Hon'ble Chief Minister M.K. Stalin for master stage decor engineering, political mega rally productions, and blockbuster cinema audio launches including Thalapathy Vijay's Master movie.",
-    highlights: [
-      "CM M.K. Stalin Direct Work Appreciation Video",
-      "Thalapathy Vijay Master Cinema Set Execution",
-      "Heavy Steel Trussing & Arena Rigging",
-      "Official State Commendation & Recognition"
-    ],
-    featured: true
-  },
   {
     id: "cm-stalin-heritage-exhibition",
     title: "CM M.K. Stalin State Heritage & Cultural Exhibition",

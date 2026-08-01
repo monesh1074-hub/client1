@@ -26,7 +26,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="services" className="bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-100 border-y border-gold-500/20 py-20 lg:py-28 transition-colors duration-300">
+    <section id="services" className="bg-obsidian-900 dark:bg-obsidian-900 light:bg-slate-100 border-y border-gold-500/20 py-10 lg:py-28 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -35,21 +35,21 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-14 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-14 space-y-2 sm:space-y-3"
         >
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
             {t('services.subtitle')}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-white light:text-slate-900">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold dark:text-white light:text-slate-900">
             {t('services.title')}
           </h2>
-          <p className="text-sm sm:text-base dark:text-slate-300 light:text-slate-700">
+          <p className="text-xs sm:text-base dark:text-slate-300 light:text-slate-700 line-clamp-2 sm:line-clamp-none">
             {t('hero.desc')}
           </p>
         </motion.div>
 
         {/* Tab Buttons Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+        <div className="flex overflow-x-auto sm:flex-wrap sm:justify-center gap-2 sm:gap-3 mb-6 sm:mb-12 pb-2 no-scrollbar scroll-smooth">
           {SERVICES.map((service) => {
             const Icon = getIcon(service.iconName);
             const isActive = service.id === activeTab;
@@ -59,14 +59,14 @@ export default function ServicesSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveTab(service.id)}
-                className={`inline-flex items-center px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                className={`inline-flex items-center px-3 py-2 sm:px-4 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 shrink-0 ${
                   isActive
                     ? 'bg-gold-gradient text-obsidian-950 shadow-lg gold-glow font-bold scale-105'
                     : 'bg-obsidian-850 dark:bg-obsidian-850 light:bg-white dark:text-slate-300 light:text-slate-700 hover:text-gold-400 border border-slate-700/50 dark:border-slate-800 light:border-slate-300'
                 }`}
               >
-                <Icon className={`w-4 h-4 mr-2 ${isActive ? 'text-obsidian-950' : 'text-gold-400'}`} />
-                {service.title}
+                <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 ${isActive ? 'text-obsidian-950' : 'text-gold-400'}`} />
+                <span>{service.title}</span>
               </motion.button>
             );
           })}
@@ -78,24 +78,24 @@ export default function ServicesSection() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.4 }}
-          className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-white border border-gold-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl"
+          className="bg-obsidian-950 dark:bg-obsidian-950 light:bg-white border border-gold-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-10 shadow-2xl"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
             
             {/* Image Column */}
             <div className="lg:col-span-6">
-              <div className="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
+              <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-gold-500/30 shadow-xl group">
                 <Image
                   src={activeService.image}
                   alt={activeService.title}
                   width={700}
                   height={500}
-                  className="w-full h-[320px] sm:h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-[210px] sm:h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 bg-obsidian-900/90 dark:bg-obsidian-900/90 light:bg-slate-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
-                  <div className="text-xs text-gold-400 font-semibold uppercase tracking-wider">{t('services.subtitle')}</div>
-                  <div className="text-xs sm:text-sm font-bold text-white">{activeService.idealFor}</div>
+                <div className="absolute bottom-3 left-3 right-3 p-3 bg-obsidian-900/90 dark:bg-obsidian-900/90 light:bg-slate-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
+                  <div className="text-[10px] text-gold-400 font-semibold uppercase tracking-wider">{t('services.subtitle')}</div>
+                  <div className="text-xs sm:text-sm font-bold text-white truncate">{activeService.idealFor}</div>
                 </div>
               </div>
             </div>

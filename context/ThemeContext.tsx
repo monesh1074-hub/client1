@@ -16,7 +16,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('dark');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('eventplus_theme') as Theme | null;
+    const savedTheme = localStorage.getItem('kalai_theme') as Theme | null;
     if (savedTheme === 'light' || savedTheme === 'dark') {
       setThemeState(savedTheme);
       applyTheme(savedTheme);
@@ -46,7 +46,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         body.classList.add('light');
       }
     }
-    localStorage.setItem('eventplus_theme', newTheme);
+    localStorage.setItem('kalai_theme', newTheme);
   };
 
   const toggleTheme = () => {

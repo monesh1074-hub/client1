@@ -33,9 +33,9 @@ export default function FloatingActionDock() {
         href={COMPANY_DETAILS.socialLinks.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-xl hover:scale-110 transition-all border border-white/20 group"
-        title="Follow EventPlus on Instagram"
-        aria-label="Instagram Page"
+        className="w-11 h-11 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center shadow-xl hover:scale-110 transition-all border border-white/20 group focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none"
+        title="Follow Kalai Decorators on Instagram"
+        aria-label="Follow Kalai Decorators on Instagram"
       >
         <Instagram className="w-5 h-5 transform group-hover:rotate-12 transition-transform" />
       </a>
@@ -45,9 +45,9 @@ export default function FloatingActionDock() {
         href={COMPANY_DETAILS.socialLinks.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-11 h-11 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xl hover:scale-110 transition-all border border-white/20 gold-glow group"
-        title="Chat on WhatsApp"
-        aria-label="WhatsApp Chat"
+        className="w-11 h-11 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-xl hover:scale-110 transition-all border border-white/20 gold-glow group focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none"
+        title="Chat with Kalai Decorators on WhatsApp"
+        aria-label="Chat with Kalai Decorators on WhatsApp"
       >
         <MessageSquare className="w-5 h-5 transform group-hover:scale-110 transition-transform" />
       </a>
@@ -55,9 +55,9 @@ export default function FloatingActionDock() {
       {/* Floating Phone Call Button */}
       <a
         href={`tel:${COMPANY_DETAILS.contact.primaryPhone.replace(/\s+/g, '')}`}
-        className="w-11 h-11 rounded-full bg-gold-gradient text-obsidian-950 flex items-center justify-center shadow-2xl hover:scale-110 transition-all gold-glow font-bold group"
-        title={`Call EventPlus Direct (${COMPANY_DETAILS.contact.primaryPhone})`}
-        aria-label="Call Event Manager"
+        className="w-11 h-11 rounded-full bg-gold-gradient text-obsidian-950 flex items-center justify-center shadow-2xl hover:scale-110 transition-all gold-glow font-bold group focus-visible:ring-2 focus-visible:ring-gold-400 focus:outline-none"
+        title={`Call Kalai Decorators Founder Perumal (${COMPANY_DETAILS.contact.primaryPhone})`}
+        aria-label={`Call Kalai Decorators Founder Perumal (${COMPANY_DETAILS.contact.primaryPhone})`}
       >
         <Phone className="w-5 h-5 transform group-hover:rotate-12 transition-transform text-obsidian-950" />
       </a>

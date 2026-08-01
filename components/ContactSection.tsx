@@ -9,28 +9,28 @@ export default function ContactSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="bg-obsidian-950 py-20 lg:py-28 relative">
+    <section id="contact" className="bg-obsidian-950 py-10 lg:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-16 space-y-2 sm:space-y-3">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-gold-400">
             {t('contact.subtitle')}
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-white">
             {t('contact.title')}
           </h2>
-          <p className="text-sm sm:text-base text-slate-300">
+          <p className="text-xs sm:text-base text-slate-300 line-clamp-2 sm:line-clamp-none">
             {t('contact.desc')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* Left Contact Card */}
-          <div className="lg:col-span-5 bg-obsidian-900 border border-gold-500/30 rounded-3xl p-8 space-y-8 shadow-2xl">
+          <div className="lg:col-span-5 bg-obsidian-900 border border-gold-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-8 space-y-6 sm:space-y-8 shadow-2xl">
             
-            <h3 className="font-serif text-2xl font-bold text-white border-b border-slate-800 pb-4">
+            <h3 className="font-serif text-xl sm:text-2xl font-bold text-white border-b border-slate-800 pb-3 sm:pb-4">
               {t('contact.directChannels')}
             </h3>
 
@@ -141,7 +141,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right Map Display */}
-          <div className="lg:col-span-7 bg-obsidian-900 border border-slate-800 rounded-3xl overflow-hidden shadow-2xl h-[480px] relative">
+          <div className="lg:col-span-7 bg-obsidian-900 border border-slate-800 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl h-[280px] sm:h-[480px] relative">
             <iframe
               title="Kalai Decorators Office Location Map Alapakkam Chennai"
               src="https://maps.google.com/maps?q=Alapakkam,Chennai,Tamil+Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed"
