@@ -151,7 +151,7 @@ export default function PortfolioGallery() {
                       width={500}
                       height={400}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      priority={idx < 8}
+                      priority={idx < 4}
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     
