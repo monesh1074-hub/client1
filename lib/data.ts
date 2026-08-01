@@ -212,7 +212,7 @@ export const SERVICES: ServiceItem[] = [
       "Seamless integration with live television broadcast cameras"
     ],
     idealFor: "Blockbuster Audio Launches, Cinema Set Designs, Teaser Reveals & Success Meets",
-    image: "/images/client/gallery/real-event-01.jpeg"
+    image: "/images/master-set-vijay-perumal-thumbnail.jpg"
   },
   {
     id: "royal-weddings",
@@ -232,23 +232,6 @@ export const SERVICES: ServiceItem[] = [
     image: "/images/client/marriage/wedding-set-01.jpeg"
   },
   {
-    id: "government-functions",
-    title: "Government Functions & Civic Ceremonies",
-    slug: "government-functions",
-    iconName: "Building2",
-    shortDesc: "Official protocol-compliant setups for inauguration ceremonies, foundation stone layings, state award galas, and civic summits.",
-    fullDesc: "Handling government protocol requires precision, punctuality, and dignified decorum. Kalai Decorators has executed scores of state government ceremonies, ensuring flawless execution, VIP security compliance, and premium press backdrops.",
-    features: [
-      "Strict adherence to State & Union Government protocol",
-      "Custom insignia backdrops & presidential podium setups",
-      "Seating arrangements for thousands of dignitaries & public",
-      "High-speed assembly & dismantling without site disruption",
-      "Comprehensive fire-retardant material usage"
-    ],
-    idealFor: "Infrastructure Inaugurations, State Award Functions & National Summits",
-    image: "/images/client/pongal/pongal-set-01.jpeg"
-  },
-  {
     id: "temple-festivals",
     title: "Temple Festivals & Cultural Galas",
     slug: "temple-festivals",
@@ -264,23 +247,6 @@ export const SERVICES: ServiceItem[] = [
     ],
     idealFor: "Temple Brahmotsavams, Devotional Discourses, Classical Dance & Music Galas",
     image: "/images/client/temple/temple-set-01.jpeg"
-  },
-  {
-    id: "corporate-events",
-    title: "Corporate Conventions & Product Launches",
-    slug: "corporate-events",
-    iconName: "Briefcase",
-    shortDesc: "Sleek, modern minimalist stage architecture, brand-aligned backdrops, acoustics, and executive conference environments.",
-    fullDesc: "Elevate your enterprise brand with precision-engineered corporate setups. From annual shareholder meets to multi-national tech summits and luxury car launches, we deliver flawless, polished corporate staging.",
-    features: [
-      "Sleek brand-colored seamless backdrops & curved LED displays",
-      "Ergonomic speaker podiums & executive panel seating",
-      "Modular exhibition booths & networking lounge setups",
-      "Acoustically balanced acoustic drapes & stage carpeting",
-      "Zero-defect execution for high-stakes corporate summits"
-    ],
-    idealFor: "Product Launches, Enterprise Conventions, Award Galas & Annual General Meetings",
-    image: "/images/client/behind-scenes/behind-work-01.jpeg"
   }
 ];
 
@@ -363,9 +329,9 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
   // 0. Founder Stalin Appreciation & Master Movie Set Video Album
   {
     id: "album-founder-stalin-appreciation",
-    title: "Hon'ble CM M.K. Stalin Work Appreciation & Master Movie Set Video",
+    title: "Master Movie Set Completion Celebration & CM M.K. Stalin Appreciation",
     category: "movies",
-    categoryLabel: "CM Stalin Appreciation & Master Movie Video",
+    categoryLabel: "Master Movie Set Completion Celebration",
     image: "/images/client/founder-appreciation/appreciation-01.jpeg",
     video: "/videos/founder-stalin-appreciation.mp4",
     gallery: [
@@ -376,8 +342,8 @@ export const PORTFOLIO_GALLERY: PortfolioItem[] = [
     ],
     location: "Chennai Arenas & Statewide Conventions, Tamil Nadu",
     scale: "Official Video & 4 Photo Commendation Album",
-    description: "Official appreciation video and event photos of Founder Perumal work recognized by Hon'ble Chief Minister M.K. Stalin for master stage design and blockbuster film set productions like Master & Vikram.",
-    highlights: ["CM M.K. Stalin Direct Appreciation", "Thalapathy Vijay Master Movie Production", "Full Video Commendation", "4 Event Photos"]
+    description: "Official celebration video and event photos of Founder Perumal work recognized by Hon'ble Chief Minister M.K. Stalin for master stage design and blockbuster film set productions like Master & Vikram.",
+    highlights: ["Master Movie Set Completion Celebration", "Thalapathy Vijay Master Movie Production", "CM M.K. Stalin Direct Appreciation", "4 Event Photos"]
   },
 
   // 1. CM M.K. Stalin Political Mega Convention Sets Album (11 Photos from cm stalin sets/)

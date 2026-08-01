@@ -18,7 +18,7 @@ export default function FounderSection() {
     },
     {
       src: '/images/client/founder-appreciation/appreciation-02.jpeg',
-      caption: 'Founder Perumal Commendation by M.K. Stalin for Master Stage Setup'
+      caption: 'Founder Perumal Commendation by M.K. Stalin for event management'
     },
     {
       src: '/images/client/founder-appreciation/appreciation-03.jpeg',
@@ -170,10 +170,10 @@ export default function FounderSection() {
               <div className="text-center max-w-3xl mx-auto space-y-2">
                 <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-400 text-xs font-semibold uppercase tracking-wider">
                   <Video className="w-3.5 h-3.5" />
-                  <span>State Dignitary Commendation Video</span>
+                  <span>Master Movie Set Completion Celebration</span>
                 </div>
                 <h3 className="font-serif text-xl sm:text-3xl font-bold dark:text-white light:text-slate-900">
-                  Hon&apos;ble CM M.K. Stalin Appreciation &amp; Master Movie Set Video
+                  Master Movie Set Completion Celebration &amp; CM M.K. Stalin Appreciation
                 </h3>
               </div>
 
@@ -195,7 +195,7 @@ export default function FounderSection() {
                   <div className="p-3.5 bg-obsidian-950 border-t border-gold-400/20 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-300 gap-2">
                     <span className="font-semibold text-gold-400 flex items-center gap-1.5 truncate">
                       <Award className="w-4 h-4 shrink-0 text-gold-400" />
-                      <span>CM M.K. Stalin Commendation &amp; Stage Setup Video</span>
+                      <span>Master Movie Set Completion Celebration</span>
                     </span>
                     <span className="text-[11px] text-slate-400 font-mono">
                       Master &amp; Vikram Cinema Production

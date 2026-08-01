@@ -72,8 +72,6 @@ export default function Footer() {
                 <li><a href="#services" className="hover:text-gold-400 transition-colors">Cinema Set Works</a></li>
                 <li><a href="#services" className="hover:text-gold-400 transition-colors">Royal Weddings</a></li>
                 <li><a href="#services" className="hover:text-gold-400 transition-colors">Temple Festivals</a></li>
-                <li><a href="#services" className="hover:text-gold-400 transition-colors">Civic Ceremonies</a></li>
-                <li><a href="#services" className="hover:text-gold-400 transition-colors">Expos &amp; Summits</a></li>
               </ul>
             </div>
           </div>

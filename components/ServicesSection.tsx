@@ -90,7 +90,7 @@ export default function ServicesSection() {
                   alt={activeService.title}
                   width={700}
                   height={500}
-                  className="w-full h-[210px] sm:h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-[250px] sm:h-[420px] object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-3 left-3 right-3 p-3 bg-obsidian-900/90 dark:bg-obsidian-900/90 light:bg-slate-900/90 backdrop-blur-md rounded-xl border border-gold-500/20">
