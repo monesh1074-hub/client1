@@ -24,14 +24,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'Kalai Decorators Team' }],
   creator: 'Kalai Decorators',
   publisher: 'Kalai Decorators',
-  metadataBase: new URL('https://www.kalaidecorators.com'),
+  metadataBase: new URL('https://www.kalaidecorators.in'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: `${COMPANY_DETAILS.name} | 27+ Years of Stage Architecture & Event Decor Mastery`,
     description: 'Specializing in engineered political mega rally stages, blockbuster cinema audio launches, and royal weddings across Tamil Nadu and South India.',
-    url: 'https://www.kalaidecorators.com',
+    url: 'https://www.kalaidecorators.in',
     siteName: 'Kalai Decorators',
     images: [
       {
@@ -77,9 +77,9 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'EventPlanningService',
     'name': COMPANY_DETAILS.name,
-    'image': 'https://www.kalaidecorators.com/images/master-set-vijay-perumal-thumbnail.jpg',
-    '@id': 'https://www.kalaidecorators.com',
-    'url': 'https://www.kalaidecorators.com',
+    'image': 'https://www.kalaidecorators.in/images/master-set-vijay-perumal-thumbnail.jpg',
+    '@id': 'https://www.kalaidecorators.in',
+    'url': 'https://www.kalaidecorators.in',
     'telephone': COMPANY_DETAILS.contact.primaryPhone,
     'email': COMPANY_DETAILS.contact.primaryEmail,
     'priceRange': '₹₹₹',
