@@ -142,10 +142,9 @@ export const COMPANY_DETAILS: CompanyDetails = {
     altPhone: "+91 99948 49904",
     email: "Kalaidecorators2026@gmail.com",
     primaryEmail: "Kalaidecorators2026@gmail.com",
-    altEmail: "yw73444@gmail.com",
+    altEmail: "Kalaidecorators2026@gmail.com",
     ownerEmails: [
-      "Kalaidecorators2026@gmail.com",
-      "yw73444@gmail.com"
+      "Kalaidecorators2026@gmail.com"
     ],
     whatsappNumber: "919940768571",
     formattedAddress: "No. 4/450, Alapakkam Main Road, Alapakkam, Chennai, Tamil Nadu - 600116",

@@ -3,9 +3,9 @@ import { Resend } from 'resend';
 import { EnquiryRecord } from './enquiries-store';
 
 export async function sendOwnerNotificationEmail(enquiry: EnquiryRecord): Promise<boolean> {
-  const primaryOwnerEmail = process.env.OWNER_PRIMARY_EMAIL || 'kamaleshmonesh908@gmail.com';
-  const altOwnerEmail = process.env.OWNER_ALT_EMAIL || 'Kalaidecorators2026@gmail.com';
-  const ownerEmails = [primaryOwnerEmail, altOwnerEmail, 'yw73444@gmail.com'];
+  const primaryOwnerEmail = (process.env.OWNER_PRIMARY_EMAIL || 'kalaidecorators2026@gmail.com').toLowerCase().trim();
+  const altOwnerEmail = (process.env.OWNER_ALT_EMAIL || '').toLowerCase().trim();
+  const ownerEmails = Array.from(new Set([primaryOwnerEmail, altOwnerEmail].filter(Boolean)));
 
   const cleanPhone = enquiry.phone.replace(/\D/g, '');
   const cleanWhatsapp = (enquiry.whatsapp || enquiry.phone).replace(/\D/g, '');
@@ -103,7 +103,7 @@ export async function sendOwnerNotificationEmail(enquiry: EnquiryRecord): Promis
     try {
       const resend = new Resend(resendApiKey);
       
-      // Resend free tier sends to the registered account email (kamaleshmonesh908@gmail.com)
+      // Send notification to primary owner email (Kalaidecorators2026@gmail.com)
       const resendResult = await resend.emails.send({
         from: 'Kalai Decorators <onboarding@resend.dev>',
         to: primaryOwnerEmail,
